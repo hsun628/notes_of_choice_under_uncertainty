@@ -21,7 +21,7 @@
 \newpage
 
 \begin{abstract}
-    This notes follows MWG in preparation of micro-theory II course. Mainly focus on the part of uncertainty. Following the syllabus of Professor Park, we focus on the chapter 6, 10, 16, 19, 13 with this specific ordering.
+    This notes follows MWG in preparation of micro-theory II course. Mainly focus on the part of uncertainty. Following the syllabus of Professor Park, we focus on the chapter 6, 10 (Partial equilibrium), 16, 19, 13 with this specific ordering.
 \end{abstract}
 
 \newpage
@@ -472,11 +472,11 @@ After checking the conditions, we know that def 6.D.1* implies that $F(\cdot)$ s
     \textbf{Proof:} Omitted.
 \end{pf}
 
-\subsection*{6.E State-dependent utility}
+\subsection*{6.E State-dependent utility (Optional)}
 
 In previous sections, we implicitly characterize the preference of decision makers in a way that the underlying state that leads to the monetary payoff is irrelevant to the eventual payoff. However, there are plenty of cases where people care about the resulting cause that leads to the payoff. For example, one must be injured or sick to receive the insurance payment.\\ 
 
-For later discussion, we refer to the underlying causes as \textit{states} or \textit{states of nature} and denote the finite set of states by $S = \{s_1, ..., s_S \}$. For each state $s \in S$, we assume there is a well-defined, objective probability $\pi_s > 0$ assigned and denote the payoff by $x_s \geq 0$. Formally, the monetary payoff can described with a random variable $g: S \rightarrow \mathbb{R}_+$ so that every $g$ can be associated with a distribution function $F(\cdot)$ with $F(x) = \sum_{\{s: g(s) \leq x\}} \pi_s$ for all $x$.
+For later discussion, we refer to the underlying causes as \textit{states} or \textit{states of nature} and denote the finite set of states by $S = \{1, ..., S \}$. For each state $s \in S$, we assume there is a well-defined, objective probability $\pi_s > 0$ assigned and denote the payoff by $x_s \geq 0$. Formally, the uncertain alternative with monetary payoff can be described with a random variable $g: S \rightarrow \mathbb{R}_+$ so that every $g$ can be associated with a distribution function $F(\cdot)$ with $F(x) = \sum_{\{s: g(s) \leq x\}} \pi_s$ for all $x$.
 
 \subsubsection*{State-dependent preferences and the extended EU theory}
 
@@ -499,12 +499,16 @@ Under this definition, we allow individuals to have different utility functions 
 \includegraphics[width=0.5\textwidth]{figs/fig.6.e.1.png}
 \end{figure}
 
-The figure above illustrates a major difference between the state-dependent and the \textit{state-uniform} utilities. We call the set of random varaibles that pay the same amount at every state the \textit{money certainty line}. In a two-state case as the figure shows, the MRS of a state-dependent utlity around the money certainty line is $\frac{\pi_1 u'_1(\bar{x})}{\pi_2 u'_2(\bar{x})}$, which reflects the probability of the occurence of the state and the nature of state dependence. While that of a state-uniform utility is only $\frac{\pi_1}{\pi_2}$.
+The figure above illustrates a major difference between the state-dependent and the \textit{state-uniform} utilities. We call the set of random varaibles that pay the same amount at every state the \textit{money certainty line}. In a two-state case as the figure shows, the MRS of a state-dependent utlity around the money certainty line is $\frac{\pi_1 u'_1(\bar{x})}{\pi_2 u'_2(\bar{x})}$, which reflects the probability of the occurence of the state and the nature of state dependence. While that of a state-uniform utility is only $\frac{\pi_1}{\pi_2}$. (the rest contents are skipped...)
 
+\subsection*{6.F Subjective probability theory (Optional)}
 
+In many real world cases, the state of the world is not associated with a recognizable, objective probability but rather often is linked to subjective estimates. The \textit{subjective probability theory}, however, states that there are still restrictions imposed on preferences such that decision makers behave \textit{as if} utilities are assigned to outcomes, probabilities are attached to states of nature, and the decisions are made by taking expected utilities.\\
 
+Following the notations in 6.E, the set of states is denoted by $S=\{1, ...,S \}$ while the probabilities are not given.
 
-
+\section*{Ch10: Competitive markets}
+\hfill
 
 
 
