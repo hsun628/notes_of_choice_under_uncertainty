@@ -1,0 +1,19 @@
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.blg
+
+
+.DS_Store
+Thumbs.db
+.vscode/
+
+Mas-colell, Whinston, Green - 1995 - Oxford University Press.pdf

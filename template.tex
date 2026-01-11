@@ -1,0 +1,95 @@
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 2cm, top = 3.5cm, bottom = 3.5cm]{geometry} % Adjust margins for A4 (1 inch is standard)
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[most]{tcolorbox}
+
+% --- Template Color Palette (Matching your PDF) ---
+\definecolor{boxheader}{HTML}{000000} 
+\definecolor{boxbg}{HTML}{FFFFFF}    
+\definecolor{subbg}{HTML}{EDEDED}
+\definecolor{boxframe}{HTML}{000000} 
+\definecolor{rule}{HTML}{BABABA}
+
+% --- Modified Box Template (Rounded + A4 Layout) ---
+\tcbset{
+    main/.style={
+        enhanced,
+        arc=3pt,        
+        outer arc=3pt,
+        colback=boxbg,
+        colframe=boxframe,
+        boxrule=0.8pt, 
+        attach title to upper,
+        fonttitle=\bfseries,
+        coltitle=boxheader,
+        after title={\textbf{:~}},
+        separator sign={}, 
+        description font=\normalfont,
+        before skip=12pt,
+        after skip=12pt,
+        left=6pt, 
+        right=6pt, 
+        top=4pt, 
+        bottom=4pt
+    }
+}
+
+\tcbset{
+    sub/.style={
+        enhanced,
+        arc=3pt,        
+        outer arc=3pt,
+        colback=subbg,
+        colframe=boxframe,
+        boxrule=0.8pt, 
+        attach title to upper,
+        fonttitle=\bfseries,
+        coltitle=boxheader,
+        after title={\textbf{:~}},
+        separator sign={}, 
+        description font=\normalfont,
+        before skip=12pt,
+        after skip=12pt,
+        left=6pt, 
+        right=6pt, 
+        top=4pt, 
+        bottom=4pt
+    }
+}
+
+
+% --- Define Specific Environments ---
+
+\newtcolorbox{definition}[1]{
+    main,
+    title={Definition #1}
+}
+
+\newtcolorbox{theorem}[1]{
+    sub,
+    title={Theorem #1}
+}
+
+\newtcolorbox{proposition}[1]{
+    sub,
+    title={Proposition #1}
+}
+
+\newtcolorbox{lemma}[1]{
+    sub,
+    title={Lemma #1}
+}
+
+\newtcolorbox{notebox}[1]{
+    main,
+    title={#1}
+}
+
+\newtcolorbox{pf}
+{   boxrule=0pt,
+    frame hidden,
+    interior hidden,
+    sharp corners,
+    enhanced,
+    borderline west={3pt}{0pt}{rule}
+}

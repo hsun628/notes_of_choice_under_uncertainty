@@ -1,0 +1,521 @@
+\documentclass[b5paper]{report}
+\input{template}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+
+\usepackage{float}
+\usepackage{caption}
+\usepackage{indentfirst}
+
+
+\begin{document}
+
+\title{Notes of choices under uncertainty}
+\author{Hsun}
+\date{January 8, 2026}
+\maketitle
+
+
+\newpage
+
+\begin{abstract}
+    This notes follows MWG in preparation of micro-theory II course. Mainly focus on the part of uncertainty. Following the syllabus of Professor Park, we focus on the chapter 6, 10, 16, 19, 13 with this specific ordering.
+\end{abstract}
+
+\newpage
+
+\section*{Ch6: Choice under uncertainty}
+
+\hfill
+
+\subsection*{6.B Expected utility theory}
+
+First, we introduce the notation and remarks.
+
+\begin{notebox}{Notations}
+    \begin{itemize}
+        \item $C$: the set of all possible outcomes.
+        \item $X$: the set of consumption bundles.
+    \end{itemize}
+\end{notebox}
+
+\noindent \textbf{Remarks:} 
+\begin{itemize}
+    \item In this section, we consider $C$ to be finite.
+    \item We assume that the probabilities of the outcomes from any chosen alternative are \textit{objectively} known.
+\end{itemize}
+
+\begin{definition}{6.B.1}
+    (\textit{Simple lottery}) A \textit{simple lottery} $L$ is a list $L = (p_1, ..., p_N)$ with $p_n \geq 0$ for all n and $\sum_n p_n = 1$.
+\end{definition}
+
+\begin{definition}{6.B.2}
+    (\textit{Compound lottery}) Given K simple lotteries $L_k = (p_1^k, ..., p_N^k)$ and probabilities $\alpha_k \geq 0$ with $\sum_k \alpha_k = 1$, the \textit{compound lottery} $(L_1, ..., L_K; \alpha_1, ..., \alpha_K)$ is the risky alternative that yields the simple lottery $L_k$ with probability $\alpha_k$.
+\end{definition}
+
+In a simple lottery, the outcomes that may result are certain. For any compound lottery $(L_1, ..., L_K; \alpha_1, ..., \alpha_K)$, we can calculate a corresponding \textit{reduced lottery} as the simple lottery $\mathrm{L} = (p_1, ..., p_N)$ that generates the same ultimate distribution over outcomes, where $p_n = \alpha_1 p_n^1 + ... + \alpha_Kp_n^K$. Therefore, $L = \alpha_1 L_1 + ... + \alpha_K L_K$.
+
+\subsubsection*{Preference over lotteries}
+
+We assume that \textit{for any risky alternative, only the reduced lottery over final outcomes is relevant to the decision maker.}\footnote{This is the reduction axiom in the notes of investment theory.} Therefore, we let $\mathcal{L}$ to be the set of all simple lotteries over the set of outcomes $C$. 
+
+\begin{definition}{6.B.3}
+    (\textit{Continuity axiom}) The preference relation $\succcurlyeq$ on the space of simple lotteries $\mathcal{L}$ is \textit{continuous} if or any $L, L', L'' \in \mathcal{L}$, the sets
+    \begin{align*}
+        &\{\alpha \in [0,1]: \alpha L + (1-\alpha)L' \succcurlyeq L'' \} \subset [0,1],\\
+        &\{\alpha \in [0,1]: L'' \succcurlyeq \alpha L + (1-\alpha)L' \} \subset [0,1]
+    \end{align*}
+    are closed.
+\end{definition}
+
+The continuous axiom therefore implies that small changes in probabilities do not change the ordering between two lotteries. Moreover, it excludes the case that the decision maker has lexicographic preferences for alternatives with a zero probability of some outcome. As in ch3, the continuity axiom implies the existence of a utility function representation.\footnote{See prop. 3.C.1: Suppose the rational $\succcurlyeq$ on $X$ is continuous, then there is a continuous utility function $u(x)$ that represents $\succcurlyeq$.}
+
+\begin{definition}{6.B.4}
+    (\textit{Independence axiom}) The preference relation $\succcurlyeq$ on $\mathcal{L}$ satisfies the \textit{independence axiom} if for all $L, L', L'' \in \mathcal{L}$ and $\alpha \in (0,1)$ we have
+    \begin{align*}
+        L \succcurlyeq L'\quad \text{if and only if}\quad \alpha L + (1-\alpha)L'' \succcurlyeq \alpha L' + (1-\alpha)L''
+    \end{align*}
+\end{definition}
+
+The intuition behind the independence axiom is that the preference ordering preserves even if we mix the two lotteries with a third one. Note this axiom is the most important but controversial part of the EU theory.
+
+\begin{definition}{6.B.5}
+    (\textit{VNM utility function}) The utility function $U: \mathcal{L} \rightarrow \mathbb{R}$ has a \textit{VNM utility function} form if there is an assignment of numbers $(u_1, ..., u_N)$ to the $N$ outcomes in $C$ such that for any simple lottery $L = (p_1, ..., p_N) \in \mathcal{L}$ we have
+    \begin{align*}
+        U(L) = u_1p_1 + ... + u_Np_N
+    \end{align*}
+\end{definition}
+
+\begin{proposition}{6.B.1}
+    A utility function $U: \mathcal{L} \rightarrow \mathbb{R}$ has an expected utility form if and only if it is \textit{linear}. That is, if and only if it satisfies 
+    \begin{align*}
+        U\left(\sum_{k=1}^K \alpha_k L_k\right) = \sum_{k=1}^K \alpha_k U(L_k)
+    \end{align*}
+    for any $K$ lotteries $L_k\in \mathcal{L}$ and probabilities ($\alpha_1, ..., \alpha_K) \geq 0$ with $\sum_{k=1}^K \alpha_k = 1$.
+\end{proposition}
+
+\begin{pf}
+    \textbf{Proof:} $(\Rightarrow)$ Suppose $U$ has the expected utility form, then for any compound lottery $(L_1, ..., L_K; \alpha_1, ..., \alpha_K)$, where $L_k = (p_1^k, ..., p_N^k)$, its reduced lottery is $L' = \sum_k \alpha_kL_k$. Hence,
+    \begin{align*}
+        U\left(\sum_{k=1}^K \alpha_k L_k\right) = \sum_{n=1}^N u_n\left(\sum_{k=1}^K \alpha_k p_n^k\right) = \sum_{k=1}^K \alpha_k\left(\sum_{n=1}^N u_n p_n^k\right) = \sum_{k=1}^K \alpha_k U(L_k) 
+    \end{align*}
+    \hfill $\square$\\
+    $(\Leftarrow)$ Suppose $U$ satisfies the equality, we can write any $L = (p_1, ...,p_N)$ as a convex combination of the degenerate lotteries $(L^1, ..., L^N)$. We then have $U(L) = U(\sum_n p_n L^n) = \sum_n p_n U(L^n) = \sum_n p_n u_n$, which is the expected utility form.
+
+    \hfill $\square$
+\end{pf}
+
+By the above proposition, we know that the expected utility property is a \textit{cardinal} property of utility functions defined on the space of lotteries.
+
+\subsubsection*{Expected utility theorem}
+ From above discussion, we know that if a decision maker's preference over lotteries satisfies the axioms, then its preference can be represented by an VNM utility function. (the proof is omitted) We further discuss the properties of indifference curves.\\
+
+ Since the expected utility form is linear in probabilities, the representability by the expected utility form is equivalent to the indifference curves being straight and parallel lines. In particular, this is the result of independence axiom. For example,  
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figs/fig.6.b.5.png}
+\end{figure}
+
+\subsection*{6.C Money lotteires and Risk aversion}
+
+Let continuous varaible $x$ denote the amount of money and the CDF $F: \mathbb{R}\ \rightarrow\ [0,1]$ be the monetary lottery. Also, we take the lotttery space $\mathcal{L}$ to be the set of all CDF over non-negative amounts of money.
+
+\subsubsection*{Risk aversion}
+
+\begin{definition}{6.C.1}
+    (\textit{Risk preference}) A decision maker is \textit{risk averse} if for any lottery $F(\cdot)$,
+    the degenerate lottery that yields the amount $\int x dF(x)$ with certainty is at least as good
+    as the lottery $F(\cdot)$ itself.\\
+
+    If the decision maker is always indifferent between these two lotteries, we say that he is \textit{risk neutral}.\\
+    
+    Finally, we say that one is \textit{strictly risk averse} if indifference holds only when the two lotteries are the same (i.e., when $F(\cdot)$ is degenerate).
+\end{definition}
+
+If one's preference admits an expected utility form, then one is risk averse if and only if 
+\begin{align*}
+    \int u(x) dF(x) \leq u \left( \int x dF(x) \right) \quad \text{for all}\ F(\cdot).
+\end{align*}
+The inequality is called the \textit{Jenson's inequality}. Therefore, we see that (strict) risk aversion is equivalent to the (strict) concavity of $u(\cdot)$.
+
+\begin{definition}{6.C.2}
+    (\textit{Certainty equivalent}) Given $u(\cdot)$, we define 
+    \begin{itemize}
+        \item The \textit{certainty equivalent} of $F(\cdot)$, $c(F,u)$, is the amount of money for which the agent is indifferent between the gable $F(\cdot)$ and the certain amount $c(F,u)$. That is,
+        \begin{align*}
+            u(c(F,u)) = \int u(x) dF(x)
+        \end{align*}
+        \item For any fixed amount of money $x$ and $\epsilon>0$, the \textit{probability premium}, $\pi(x,\epsilon,u)$, is the excess in winning probability ovver fair odds that makes the individual indifferent between the certain outcome $x$ and a gamble betweeen the two outcomes $x + \epsilon$ and $x - \epsilon$. That is, 
+        \begin{align*}
+            u(x) = (\frac{1}{2} + \pi(x,\epsilon,u))u(x + \epsilon) + (\frac{1}{2} - \pi(x,\epsilon,u))u(x - \epsilon)
+        \end{align*}
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}{6.C.1}
+    Suppose a decision maker is an expected utility maximizer with $u(\cdot)$ on amounts of money, then the following are quivalent:
+    \begin{itemize}
+        \item[(i)] The decision maker is risk averse
+        \item[(ii)] $u(\cdot)$ is concave
+        \item[(iii)] $c(F,u) \leq \int x dF(x)$ for all $F(\cdot)$
+        \item[(iv)] $\pi(x,\epsilon,u) \geq 0$ for all $x$ and $\epsilon \geq 0$   
+    \end{itemize}
+\end{proposition}
+
+\begin{pf}
+    \textbf{Proof:} We only show that (ii) $\Leftrightarrow$ (iii), (i) $\Rightarrow$ (iv), and (iv) $\Rightarrow$ (ii).\\
+
+    (ii) $\Leftrightarrow$ (iii): For any $F(\cdot)$,
+    \begin{align*}
+        &c(F,u) \leq \int xdF(x) \\
+        \Leftrightarrow\ &u(c(F,u)) \leq u\left(\int xdF(x) \right)\\
+        \Leftrightarrow\ &\int u(x)dF(x) \leq u\left(\int xdF(x) \right) \tag*{(def. 6.C.2)}
+    \end{align*}
+    \hfill $\square$\\
+    (i) $\Rightarrow$ (iv): Consider a risk averse decision maker. For any $x$ and $\epsilon \geq 0$, there exists a $\pi$ s.t. 
+    \begin{align*}
+        u(x) 
+        &= (\frac{1}{2} + \pi)u(x + \epsilon) + (\frac{1}{2} - \pi)u(x - \epsilon) \\
+        &\geq \frac{1}{2}u(x + \epsilon) + \frac{1}{2}u(x - \epsilon)
+    \end{align*}
+    Rearrange the inequality, we obtain
+    \begin{align*}
+        \pi u(x+\epsilon) \geq \pi u(x-\epsilon)
+    \end{align*}
+    Since $u'(\cdot) \geq 0$, we know $u(x+\epsilon) \geq u(x-\epsilon)$ and hence $\pi \geq 0$ for any $x$ and $\epsilon \geq 0$.
+    
+    \hfill $\square$ \\
+    (iv) $\Rightarrow$ (ii): We claim that (iv) implies $u(\frac{1}{2}x + \frac{1}{2}y) \geq \frac{1}{2}u(x) + \frac{1}{2}u(y)$ for any $x,y$.\\
+
+    Suppose $\pi \geq 0$ for all $x$ and $\epsilon \geq 0$ and $\exists\ x,y$ s.t. $u(\frac{1}{2}x + \frac{1}{2}y) < \frac{1}{2}u(x) + \frac{1}{2}u(y)$. WLOG we assume $x \geq y$.
+\end{pf}
+
+    \newpage
+
+\begin{pf}
+    Take $\epsilon = \frac{1}{2}x - \frac{1}{2}y \geq 0$. There exists a $\pi \geq 0$ s.t.
+    \begin{align*}
+        u(\frac{1}{2}x + \frac{1}{2}y) 
+        &= (\frac{1}{2} + \pi)u(\frac{1}{2}x + \frac{1}{2}y + \epsilon) + (\frac{1}{2} - \pi)u(\frac{1}{2}x + \frac{1}{2}y - \epsilon)\\
+        &= (\frac{1}{2} + \pi)u(x) + (\frac{1}{2} - \pi)u(y)
+    \end{align*}
+    Since $x \geq y$, we conclude that $u(\frac{1}{2}x + \frac{1}{2}y) \geq \frac{1}{2}u(x) + \frac{1}{2}u(y)$ for any $x,y$. Thus, $u(\cdot)$ is concave.
+    
+    \hfill $\square$
+\end{pf}
+
+\subsubsection*{The measurement of risk aversion}
+
+\begin{definition}{6.C.3}
+    (\textit{Arrow-Pratt measure}) Given a twice-differentiable $u(\cdot)$ for money, the \textit{Arrow-Pratt coefficient of absolute risk aversion} at $x$ is defined as 
+    \begin{align*}
+        r_A(x) = -\frac{u''(x)}{u'(x)}
+    \end{align*}
+\end{definition}
+
+One motivation behind the measure is to fix a wealth level $x$ and study the probability premium $\pi(x, \epsilon, u)$ as $\epsilon \rightarrow 0^+$. By def 6.C.2, for any $x$ and $\epsilon \geq 0$, the probability premium is defined as $\pi(\epsilon)$ s.t. 
+\begin{align*}
+    u(x) = (\frac{1}{2} + \pi(\epsilon))u(x + \epsilon) + (\frac{1}{2} - \pi(\epsilon))u(x - \epsilon)
+\end{align*}
+Differentiate both sides w.r.t. $\epsilon$ twice, and take $\epsilon \rightarrow 0^+$, we obtain
+\begin{align*}
+    0 = 4\pi'(0)u'(x) + u''(x)
+\end{align*}
+Hence, 
+\begin{align*}
+    r_A(x) = 4\pi'(0)
+\end{align*}
+This means that $r_A(x)$ measures \textit{the rate at which the probability premium increases at certainty with small risk.}\\
+
+To compare the level of risk aversion across agents, the following criterion seem feasible:
+\begin{itemize}
+    \item[(i)] $r_A(x, u_2) \geq r_A(x, u_1)$ for all $x$
+    \item[(ii)]  There exists an increasing concave function $\psi(\cdot)$ such that $u_2(x) = \psi(u_1(x))$ at all $x$. In other words, $u_2(\cdot)$ is “more concave” than $u_1(\cdot)$
+    \item[(iii)] $c(F,u_2) \leq c(F,u_1)$ for any $F(\cdot)$
+    \item[(iv)] $\pi(x,\epsilon, u_2) \geq \pi(x, \epsilon, u_1)$ for any $x$ and $\epsilon \geq 0$
+    \item[(v)] Whenever $u_2$ finds a lottery $F(\cdot)$ at least as good as a riskless outcome $\bar{x}$, then $u_1$ also finds $F(\cdot)$ at least as good as $\bar{x}$.
+\end{itemize}
+
+\begin{proposition}{6.C.2}
+    Criterion (i) to (v) are equivalent.
+\end{proposition}
+\begin{pf}
+    \textbf{Proof:} We only show (i) $\Leftrightarrow$ (ii).\\
+
+    We always have some increasing $\psi(\cdot)$ s.t. $u_2(x) = \psi(u_1(x))$ as they are ordinally identical after the transformation. Differentiate both sides w.r.t. $x$, we obtain
+    \begin{align*}
+        u'_2(x) = \psi'(u_1(x)) \cdot u'_1(x)
+    \end{align*}
+    and 
+    \begin{align*}
+        u''_2(x) = \psi''(u_1(x)) \cdot [u'_1(x)]^2 + \psi'(u_1(x))\cdot u''_1(x)
+    \end{align*}
+    Dividing both sides by $u'_2(x) > 0$, 
+    \begin{align*}
+        r_A(x,u_2) 
+        &= -\frac{u''_2(x)}{u'_2(x)} \\
+        &= -\frac{\psi''(u_1(x)) \cdot [u'_1(x)]^2 + \psi'(u_1(x))\cdot u''_1(x)}{\psi'(u_1(x)) \cdot u'_1(x)}\\
+        &= r_A(x,u_1) - \frac{\psi''(u_1(x))}{\psi'(u_1(x))}u'_1(x)
+    \end{align*}
+    Hence, 
+    \begin{align*}
+        r_A(x,u_2) \geq r_A(x,u_1)\ \Leftrightarrow\ \psi''(u_1(x)) \leq 0\ \text{for all}\ x
+    \end{align*}
+    \hfill $\square$
+\end{pf}
+
+\noindent \textbf{Reamrk:} Note that the "more-risk-averse-than" relation is transitive but \textit{not complete}. That is, we generally have $r_A(x,u_1) > r_A(x,u_2)$ for some $x$ but $r_A(x,u_1) < r_A(x,u_2)$ for some other $x'$.
+
+\begin{definition}{6.C.4}
+    $u(\cdot)$ for money exhibits \textit{decreasing absolute risk aversion} if $r_A(x,u)$ is a decreasing function of $x$.
+\end{definition}
+
+\begin{proposition}{6.C.3}
+    The following are equivalent:
+    \begin{itemize}
+        \item[(i)] $u(\cdot)$ exhibits decreasing absolute risk aversion
+        \item[(ii)] For $x_2 < x_1$, $u_2(z) = u(x_2+z)$ is a concave transformation of $u_1(z) = u(x_1+z)$
+        \item[(iii)] For any rsik $F(z)$, the certainty equivalent formed by adding risk $z$ at wealth level $x$, denoted $c_x$ is s.t. $(x - c_x)$ is decreasing in $x$. That is, the higher the wealth level $x$ is, the less one is willing to pay to get rid of the risk
+        \item[(iv)] The probability premium $\pi(x,\epsilon,u)$ is decreasing in $x$
+        \item[(v)] For any $F(z)$, if $\int u(x_2+z)dF(z) \geq u(x_2)$ and $x_2 < x_1$, then $\int u(x_1+z)dF(z) \geq u(x_1)$
+    \end{itemize}
+\end{proposition}
+
+\begin{pf}
+    \textbf{Proof:} This is the result of prop. 6.C.2.
+
+    \hfill $\square$
+\end{pf}
+
+From prop. 6.C.3, we know the underlying wealth level has significant effects on the risk averse behavior toward risk. Therefore we introduce another measure of risk aversion capturing the relative risk at a certain wealth level.
+
+\begin{definition}{6.C.5}
+    (\textit{Relative risk aversion}) Given $u(\cdot)$, the \textit{coefficient of relative risk aversion} at $x$ is 
+    \begin{align*}
+        r_R(x,u) = -\frac{xu''(x)}{u'(x)}
+    \end{align*}
+\end{definition}
+
+Note the requirement of \textit{non-increasing relative risk aversion} is stronger than that of decreasing absolute risk aversion we studied preveiously. This is because $r_R(x,u) = x r_A(x,u)$. A risk averse agent with non-increasing relative risk aversion exhibits decreasing absolute risk aversion, but the converse is not true. The following proposition mimics prop. 6.C.3.
+
+\begin{proposition}{6.C.4}
+    The following conditions on $u(\cdot)$ are equivalent:
+    \begin{itemize}
+        \item[(i)] $r_R(x,u)$ is decreasing in $x$
+        \item[(ii)] For $x_2 < x_1$, $\tilde{u}_2(x) = u(tx_2)$ is a concave transformation of $\tilde{u}_1(x) = u(tx_1)$
+        \item[(iii)] Given any risk $F(t)$ on $t>0$, the certainty equivalent $\bar{c}_x$ defined by $u(\bar{c}_x) = \int u(tx)dF(t)$ is s.t. $\frac{x}{\bar{c}_x}$ is decreasing in $x$
+    \end{itemize}
+\end{proposition}
+\begin{pf}
+    \textbf{Proof:} We show (i) implies (iii).\\
+
+    Fix $F(t)$ on $t>0$. For any $x$, define $u_x(t) = u(tx)$ and let $c(x)$ be the usual certainty equivalent s.t. $u_x(c(x)) = \int u_x(t)dF(t)$\\
+
+    Note that 
+    \begin{align*}
+        -\frac{u''_x(t)}{u'_x(t)} 
+        &= -x \frac{u''(tx)}{u'(tx)}\\
+        &= -(\frac{1}{t})tx\frac{u''(tx)}{u'(tx)}\\
+        &= (\frac{1}{t})\cdot r_R(tx,u) \ \text{for any}\ x
+    \end{align*}
+
+    If (i) holds, then $u_{x'}(\cdot)$ is less risk averse than $u_{x''}(\cdot)$ for any $x' > x$. Thus, by prop. 6.C.2, $c(x') > c(x)$ and we conclude $c(\cdot)$ is increasing. We know then
+    \begin{align*}
+        u_x(c(x)) &= u(xc(x))\\
+        &= \int u_x(t)dF(t) = \int u(tx)dF(t) = u(\bar{c}_x) 
+    \end{align*}
+    Hence, $\dfrac{\bar{c}_x}{x} = c(x)$. We conclude that $\dfrac{x}{\bar{c}_x}$ is decreasing as desired. 
+
+    \hfill $\square$
+\end{pf}
+
+\subsection*{6.D Comparison of payoff distributions in terms of return and risk}
+
+In previous section, we discuss on how to compare utility functions. While in this section, we would like to compare payoff distributions. Specifically, we would like to contruct formal ways to do such a comparison w.r.t. our two major concerns: return and the dipersion of return. For the following specifications, we restrict ourselves to distributions $F(\cdot)$ s.t. $F(0) = 0$ and $F(x) = 1$ for some $x$.\\
+
+To see whether the distribution $F(\cdot)$ yields unambiguously higher returns than $G(\cdot)$, we may check two things:
+\begin{itemize}
+    \item[(i)] Whether every EU-maximizer who values more than less prefers $F(\cdot)$ to $G(\cdot)$
+    \item[(ii)] For every amount of money $x$, the probability of receiving at least $x$ is higher under $F(\cdot)$ than under $G(\cdot)$
+\end{itemize}
+Hopefully, it turns out that these two lead to the same concept of the \textit{first-order stochastic dominance}. (They are indeed equivalent!)
+
+\subsubsection*{First-order stochastic dominance}
+
+\begin{definition}{6.D.1}
+    (\textit{First-order stochastic dominance}) The distribution $F(\cdot)$ first-order stochastically dominates $G(\cdot)$ if, for every non-decreasing function $u: \mathbb{R} \rightarrow \mathbb{R}$, we have
+    \begin{align*}
+        \int u(x)dF(x) \geq \int u(x)dG(x)
+    \end{align*}
+\end{definition}
+
+\begin{proposition}{6.D.1}
+    The distribution of monetary payoffs $F(\cdot)$ first-order stochastically dominates $G(\cdot)$ \textit{if and only if} $F(x) \leq G(x)$ for every $x$.
+\end{proposition}
+\begin{pf}
+    \textbf{Proof:} ($\Rightarrow$) Given $F(\cdot)$ and $G(\cdot)$, suppose $F(\cdot)$ first-order stochastically dominates $G(\cdot)$. Take some arbitrary $\bar{x}$, we define a non-decreasing function
+    \begin{align*}
+        u(x) = \begin{cases}
+            1 \quad \text{if}\ x \geq \bar{x}\\
+            0 \quad \text{otherwise}
+        \end{cases}
+    \end{align*}
+    By def. 6.D.1, 
+    \begin{align*}
+        \int u(x)dF(x) \geq \int u(x)dG(x)\ \Rightarrow\ &1 - F(\bar{x}) \geq 1 - G(\bar{x})\\
+        \Rightarrow\ &G(\bar{x}) \geq F(\bar{x})
+    \end{align*}
+    \hfill $\square$ \\
+    ($\Leftarrow$) Suppose $F(x) \leq G(x)$ for every $x$. For any non-decreasing differentiable\footnote{We omit the proof that it suffices to show the case of differentiable $u(\cdot)$.} function $u(\cdot)$, we use integration by parts:
+    \begin{align*}
+        \int u(x) dF(x) - \int u(x) dG(x) &= \int u(x) d[F(x) - G(x)] \\
+        &= \underbrace{\left. u(x)[F(x)-G(x)] \right|_{-\infty}^{\infty}}_{=0} - \int [F(x)-G(x)]u'(x)dx \\
+        &= \int [G(x)-F(x)]u'(x)dx
+    \end{align*}
+\end{pf}
+
+\newpage
+
+\begin{pf}
+    Since $G(x) \geq F(x)$ and $u'(x) \geq 0$, the integrand is non-negative. Hence, the integral is $\geq 0$.
+
+    \hfill $\square$
+\end{pf}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth]{figs/fig.6.d.2.png}
+\caption*{$F(\cdot)$ first-order stochastically dominates $G(\cdot)$}
+\end{figure}
+
+One thing worth noting is that although $F(\cdot)$ first-order stochastically dominating $G(\cdot)$ implies the mean return of $F(\cdot)$ is greater than that of $G(\cdot)$, the converse generally isn't true. For a counterexample, consider
+\begin{align*}
+    F(z) &= \begin{cases}
+        0 \quad \text{if}\ z<0\\
+        \frac{1}{4} \quad \text{if}\ 0\leq z <2\\
+        1 \quad \text{if}\ 2\leq z
+    \end{cases} \\
+    G(z) &= \begin{cases}
+        0 \quad \text{if}\ z<1\\
+        1 \quad \text{otherwise}
+    \end{cases}
+\end{align*}
+We may check that $F(\frac{1}{2}) = \frac{1}{4} > 0 = G(\frac{1}{2})$. Thus, $F(\cdot)$ does not first-order stochastically dominate $G(\cdot)$ by prop.6.D.1. However,
+\begin{align*}
+    \mathrm{E}[F(z)] = 0 \cdot \frac{1}{4} + 2 \cdot \frac{3}{4} = \frac{3}{2} > \mathrm{E}[G(z)] = 1
+\end{align*}
+\hfill $\square$
+
+\subsubsection*{Second-order stochastic dominance}
+
+For the discussion of second-order stochastic dominance, we restrict ourselves to distributions with the same mean.
+
+\begin{definition}{6.D.2}
+    (\textit{Second-order stochastic dominance}) For any two distributions $F(\cdot)$ and $G(\cdot)$ with the same mean, $F(\cdot)$ \textit{second-order stochastically dominates} (or is \textit{less risky than}) $G(\cdot)$ if, for every non-decreasing \textit{concave} function $u: \mathbb{R} \rightarrow \mathbb{R}$, we have
+    \begin{align*}
+        \int u(x)dF(x) \geq \int u(x)dG(x)
+    \end{align*}
+\end{definition}
+
+Now we introduce another way to characterize the second-order stochastic dominance, known as \textit{mean-preserving spreads}.\\
+
+Consider a compound lottery that yields $x$ according to the distribution $F(\cdot)$ in the first stage, and randomize all possible outcomes of $x$ so that the final payoff is $x+z$ in the second stage, where $z$ follows a distribution $H_x(z)$ with zero mean.
+
+\begin{definition}{6.D.1*}
+    (\textit{Mean-preserving spreads}) Let $G(\cdot)$ denote the reduced lottery resulting from the process we described above. If a distribution can be obtained from lottery $F(\cdot)$ in such a process for some distribution $H_x(\cdot)$ (e.g. $G(\cdot)$), then we say it is a \textit{mean-preserving spread} of $F(\cdot)$.
+\end{definition}
+
+To associate the mean-preserving spread with def. 6.D.1, we need to check two things: 
+
+\begin{itemize}
+    \item[(i)] $F(\cdot)$ and $G(\cdot)$ share the same mean
+    \item[(ii)] For any non-decreasing concave function $u: \mathbb{R} \rightarrow \mathbb{R}$, the inequality in def. 6.D.1 holds.
+\end{itemize}
+
+\begin{pf}
+    \textbf{Check:}\\
+    (i):
+    \begin{align*}
+        \mathrm{E}[G(x)] = \int \left(\int (x+z) dH_x(z) \right) dF(x) = \int x dF(x) = \mathrm{E}[F(x)]
+    \end{align*}
+    \hfill $\square$\\
+
+    (ii): Fix a concave function $u: \mathbb{R} \rightarrow \mathbb{R}$,
+    \begin{align*}
+        \int u(x) dG(x) &= \int \left(\int u(x+z) dG_x(z) \right) dF(x) \\
+        &\leq \int u\left( \int (x+z) dG_x(z) \right) dF(x) = \int u(x) dF(x)
+    \end{align*}
+    \hfill $\square$
+\end{pf}
+
+After checking the conditions, we know that def 6.D.1* implies that $F(\cdot)$ second-order stochastically dominates $G(\cdot)$. In later proposition, we will show that the two concepts are essentially equivalent.
+
+\begin{definition}{6.D.1**}
+    (\textit{Elementary increase in risk}) $G(\cdot)$ forms an \textit{elementary increase in risk} from $F(\cdot)$ if $G(\cdot)$ is generated from $F(\cdot)$ by transfering the mass $F(\cdot)$ assigns to $[x',x'']$ to the endpoint $x'$ and $x''$ s.t. the mean preserves.
+\end{definition}
+
+
+\begin{proposition}{6.D.2}
+    Given two distributions $F(\cdot)$ and $G(\cdot)$ with the same mean. The following are equivalent:
+    \begin{itemize}
+        \item[(i)] $F(\cdot)$ \textit{second-order stochastically dominates} $G(\cdot)$
+        \item[(ii)] $G(\cdot)$ is a \textit{mean-preserving spread} of $F(\cdot)$
+        \item[(iii)] $\int_0^x G(t) dt \geq \int_0^x F(t) dt$ for all $x$
+        
+    \end{itemize}
+    
+\end{proposition}
+\begin{pf}
+    \textbf{Proof:} Omitted.
+\end{pf}
+
+\subsection*{6.E State-dependent utility}
+
+In previous sections, we implicitly characterize the preference of decision makers in a way that the underlying state that leads to the monetary payoff is irrelevant to the eventual payoff. However, there are plenty of cases where people care about the resulting cause that leads to the payoff. For example, one must be injured or sick to receive the insurance payment.\\ 
+
+For later discussion, we refer to the underlying causes as \textit{states} or \textit{states of nature} and denote the finite set of states by $S = \{s_1, ..., s_S \}$. For each state $s \in S$, we assume there is a well-defined, objective probability $\pi_s > 0$ assigned and denote the payoff by $x_s \geq 0$. Formally, the monetary payoff can described with a random variable $g: S \rightarrow \mathbb{R}_+$ so that every $g$ can be associated with a distribution function $F(\cdot)$ with $F(x) = \sum_{\{s: g(s) \leq x\}} \pi_s$ for all $x$.
+
+\subsubsection*{State-dependent preferences and the extended EU theory}
+
+\begin{definition}{6.E.2}
+    (\textit{Extended expected utility representation}) The preference relation $\succcurlyeq$ has an \textit{Extended expected utility representation} if for every $s \in S$, there is a function $u_s: \mathbb{R}_+ \rightarrow \mathbb{R}$ s.t. for any $(x_1, ..., x_S) \in \mathbb{R}_+^S$ and $(x'_1, ..., x'_S) \in \mathbb{R}_+^S$,
+\end{definition}
+
+\begin{definition}{6.E.2}
+    (conti.) 
+    \begin{align*}
+        (x_1, ..., x_S) \succcurlyeq (x'_1, ..., x'_S)\ \text{if and only if}\ \sum_s \pi_s u_s(x_s) \geq \sum_s \pi_s u_s(x'_s)
+    \end{align*}
+\end{definition}
+
+Under this definition, we allow individuals to have different utility functions in each state, which generalizes the \textit{state-independent} utility function we studied in previous sections.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{figs/fig.6.e.1.png}
+\end{figure}
+
+The figure above illustrates a major difference between the state-dependent and the \textit{state-uniform} utilities. We call the set of random varaibles that pay the same amount at every state the \textit{money certainty line}. In a two-state case as the figure shows, the MRS of a state-dependent utlity around the money certainty line is $\frac{\pi_1 u'_1(\bar{x})}{\pi_2 u'_2(\bar{x})}$, which reflects the probability of the occurence of the state and the nature of state dependence. While that of a state-uniform utility is only $\frac{\pi_1}{\pi_2}$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
