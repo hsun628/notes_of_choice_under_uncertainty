@@ -12,7 +12,7 @@
 
 \begin{document}
 
-\title{Notes of choices under uncertainty}
+\title{Notes of Choice under Uncertainty}
 \author{Hsun}
 \date{January 8, 2026}
 \maketitle
@@ -507,10 +507,101 @@ In many real world cases, the state of the world is not associated with a recogn
 
 Following the notations in 6.E, the set of states is denoted by $S=\{1, ...,S \}$ while the probabilities are not given.
 
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section*{Ch10: Competitive markets}
 \hfill
 
+In this chapter, we will focus on the partial equilibrium analysis and the welfare theorem.
 
+\subsection*{10.B Pareto optimality and Competitive equilibria}
+
+\begin{notebox}{Notations}
+    \begin{itemize}
+        \item $\omega_l \geq 0:$ endowment of the good indexed by $l = 1,..., L$
+        \item $x_i = (x_{1i}, ..., x_{Li}) \in \mathbb{R}^L$: consumption bundle of consumer $i$, $i = 1,..., I$
+        \item $y_j = (y_{1j}, ..., y_{Lj}) \in \mathbb{R}^L$: production vector of firm $j$, $j = 1,..., J$
+    \end{itemize}
+\end{notebox}
+
+\noindent \textbf{Remark:} It is possible for firms to transform some of the initial endowment into the other goods with some technologies. We use negative entries in the production vector to denote input usage, so the total amount of goods $l$ available is $\omega_l + \sum_j y_{lj}$.
+
+\subsubsection*{Pareto optimality}
+
+\begin{definition}{10.B.1}
+    (\textit{Feasible allocation}) An economic allocation $(x_1, ..., x_I, y_1, ..., y_J)$ is a specification of a consumption bundle $x_i \in X_i\ \forall$ consumers and a production vector $y_j \in Y_j\ \forall$ firms. The allocation $(x_1, ..., x_I, y_1, ..., y_J)$ is \textit{feasible} if 
+    \begin{align*}
+        \sum_{i=1}^I x_{li} \leq \omega_l + \sum_{j=1}^J y_{lj}\ \text{for}\ l=1, ..., L
+    \end{align*}
+\end{definition}
+
+
+\begin{definition}{10.B.2}
+    (\textit{Pareto efficiency}) A feasible allocation $(x_1, ..., x_I, y_1, ..., y_J)$ is \textit{Pareto optimal} (or \textit{Pareto efficient}) if there is no other feasible allocation $(x'_1, ..., x'_I, y'_1, ..., y'_J)$ s.t. $u_i(x'_i) \geq u_i(x_i)$ for all $i$ and $u_i(x'_i) > u_i(x_i)$ for some $i$.
+\end{definition}
+
+Following the concept of Pareto efficiency, we define the \textit{utility possibility set} as $U = \{(u_1, ..., u_I) \in \mathbb{R}^I$: there exists a feasible allocation $(x_1, ..., x_I, y_1, ..., y_J)$ s.t. $u_i \leq u_i(x_i)$ for all $i \}$
+
+\subsubsection*{Competitive equilibria}
+
+In this chapter, we are concerned with the analysis of \textit{competitive market economies}. In such an economy, society's initial endowments and technological possibilities (i.e. firms) are owned by consumers. We denote the share of firm $j$ owned by consumer $i$ by $\theta_{ij}$, so that he/she can claim a fraction of $\theta_{ij}$ of firm $j$'s profits. ALso in a competitive economy, a market exists for each goods, and all consumers and producers are price takers.\\
+
+\noindent \textbf{Remark:} Recall that in textbooks, we usually argue that the reason why an equilibrium must involve no excess demand or supply is because, for example, some consumers may be better off to offer a higher price to receive as much goods as desired. In such a justification, we actually made use of the fact that consumers and producers are not simply take the price as given, which may seem to lead to a contradiction.\\
+
+We have to recognize here that consumers and producers both always have the ability to change their offered price. Meanwhile, the price-taking assumption is actually refer to the case that there is \textit{no incentive} for them to alter the price, if taken as given, eqaute the supply and demand. As long as consumers and producers are able to make their desired offer, at the price that equates supply and demand, consumers will not wish to raise the price and producers will not wish to lower it. This answer the "contradiction" we ran in to at the first glance.
+
+\begin{definition}{10.B.3}
+    (\textit{Competitive equilibrium}) The allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $p^* \in \mathbb{R}^L$ consititute a \textit{competitive equilibrium} (or \textit{Walrasian equilibrium}) if the following conditions are satisfied:
+    \begin{itemize}
+        \item[(i)] \textit{Profit maximization}: For each firm $j$, $y^*_j$ solves
+        \begin{align*}
+            \max_{y_j \in Y_j} p^* \cdot y_j
+        \end{align*}
+        \item[(ii)] \textit{utility maximization}: For each consumer $i$, $x^*_i$ solves
+        \begin{align*}
+            \max_{x_i \in X_i} u_i(x_i)\ s.t.\ p^* \cdot x_i \leq p^* \cdot \omega_i + \sum_{j=1}^{J} \theta_{ij}(p^* \cdot y^*_j)
+        \end{align*}
+        \item[(iii)] \textit{Market clearing}: For each good $l$, 
+        \begin{align*}
+            \sum_{i=1}^{I} x^*_{li} = \omega_l + \sum_{j=1}^{J} y^*_{lj}
+        \end{align*}
+    \end{itemize}
+\end{definition}
+
+\begin{notebox}{Exercise 10.B.2}
+    Show that if allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $p^* \gg 0$ form a competitive equilibrium, then allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $\alpha p^*$ also form a competitive equilibrium for any scalar $\alpha > 0$.
+\end{notebox}
+\begin{pf}
+    \textbf{Proof:} As $y^*_1, ..., y^*_J$ solves the profit maximization problem given $p^*$, they solve the profit maximization problem under $\alpha p^*$. Plugging this result to conumsers' budget constraints, the utility maximization problem becomes:
+    \begin{align*}
+        \max_{x_i \in X_i} u_i(x_i)\ s.t.\ \alpha p^* \cdot x_i \leq \alpha p^* \omega_i + \sum_{j=1}^{J} \theta_{ij} (\alpha p^* \cdot y^*_j)
+    \end{align*}
+    Since $\alpha > 0$, the utility maximization problem is identical to the original one. Thus, the same $x_1,..., x_I$ solve the utility maximization problem under $\alpha p^*$.\\
+
+    Finally, as the solution to the two maximization problems,$x^*_i$ and $y^*_j$, are unchanged, the market clearing condition holds naturally. 
+
+    \hfill $\square$
+\end{pf}
+
+\begin{lemma}{10.B.1}
+    (\textit{Walras law}) If the allocation $(x_1, ..., x_I, y_1, ..., y_J)$ and the price vector $p \gg 0$ satisfy the market clearing condition for all goods $l \neq k$, and if all consumers' budget constraints are binding, then the market for good $k$ also clears.
+\end{lemma}
+\begin{pf}
+    \textbf{Proof:} Adding up the consumers' budget constraints, we obtain
+    \begin{align*}
+        \sum_{i=1}^{I} p \cdot x_i = \sum_{i=1}^{I} p \cdot \omega_i + \sum_{i=1}^{I} \sum_{j=1}^{J} \theta_{ij}(p \cdot y_j)
+    \end{align*}
+    Rearranging the terms, we get
+    \begin{align*}
+        \sum_{l \neq k} p_l \left(\sum_{i=1}^{I} x_{li} - \omega_l - \sum_{j=1}^{J} y_{lj} \right) = - p_k \left(\sum_{i=1}^{I} x_{ki} - \omega_k - \sum_{j=1}^{J} y_{kj} \right)
+    \end{align*}
+    By clearing markets of goods $l \neq k$, the left hand side eqauls to zero and so does the right hand side ($p_k > 0$). Thus, the market clearing condition holds for the market of good $k$. 
+
+    \hfill $\square$ 
+\end{pf}
 
 
 
