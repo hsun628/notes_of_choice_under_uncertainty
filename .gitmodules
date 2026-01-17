@@ -1,0 +1,6 @@
+[submodule "template"]
+	path = template
+	url = https://github.com/hsun628/latex_template.git
+[submodule "mytemplate"]
+	path = mytemplate
+	url = https://github.com/hsun628/latex_template.git

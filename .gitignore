@@ -11,6 +11,9 @@
 *.bbl
 *.blg
 
+mytemplate/*.aux
+mytemplate/*.log
+
 
 .DS_Store
 Thumbs.db
