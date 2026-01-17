@@ -560,7 +560,7 @@ We have to recognize here that consumers and producers both always have the abil
         \begin{align*}
             \max_{y_j \in Y_j} p^* \cdot y_j
         \end{align*}
-        \item[(ii)] \textit{utility maximization}: For each consumer $i$, $x^*_i$ solves
+        \item[(ii)] \textit{Utility maximization}: For each consumer $i$, $x^*_i$ solves
         \begin{align*}
             \max_{x_i \in X_i} u_i(x_i)\ s.t.\ p^* \cdot x_i \leq p^* \cdot \omega_i + \sum_{j=1}^{J} \theta_{ij}(p^* \cdot y^*_j)
         \end{align*}
@@ -587,7 +587,7 @@ We have to recognize here that consumers and producers both always have the abil
 \end{pf}
 
 \begin{lemma}{10.B.1}
-    (\textit{Walras law}) If the allocation $(x_1, ..., x_I, y_1, ..., y_J)$ and the price vector $p \gg 0$ satisfy the market clearing condition for all goods $l \neq k$, and if all consumers' budget constraints are binding, then the market for good $k$ also clears.
+    (\textit{Walras' law}) If the allocation $(x_1, ..., x_I, y_1, ..., y_J)$ and the price vector $p \gg 0$ satisfy the market clearing condition for all goods $l \neq k$, and if all consumers' budget constraints are binding, then the market for good $k$ also clears.
 \end{lemma}
 \begin{pf}
     \textbf{Proof:} Adding up the consumers' budget constraints, we obtain
@@ -603,6 +603,25 @@ We have to recognize here that consumers and producers both always have the abil
     \hfill $\square$ 
 \end{pf}
 
+\subsection*{10.C Partial equilibrium competitive analysis}
+
+Marshallian partial equilibrium analysis envisions the market for one good that consititutes a small fraction of the whole economy. The small size of the market implies two things:
+\begin{itemize}
+    \item When the expenditure on the good is a small portion of a consumer's total expenditure, only a small fraction of any additional dollar of wealth will be spent on it. That is, we expect the wealth effect to be small.
+    \item The small size of the market of interest leads the price of other goods to be approximately unaffected by changes in this market. Therefore, we are jsutified in treating the expenditure on the other goods as a single composite commodity, called the \textit{numeraire}.
+\end{itemize}
+
+With the two implications, we proceed to study a simple two-good quasilinear model, where there are two goods: $l$ and the numeraire. We denote consumer $i$'s consumption of good $l$ and the numeraire as $x_i$ and $m_i$, respectively. For each consumer $i$, he/she has a quasilinear utility function as below\footnote{For convenience, we assume the consumption set is $\mathbb{R} \times \mathbb{R}_+$ (i.e. the consumption of numeraire can be negative.) Additionally, we assume that $\phi_i(\cdot)$ is bounded above and twice differentiable, with $\phi'_i(x_i) > 0$ and $\phi''_i(x_i) < 0$ for all $x_i \geq 0$. We normalize $\phi_i(0) = 0$.}:
+\begin{align*}
+    u_i(m_i,x_i) = m_i + \phi_i(x_i)
+\end{align*}
+
+In the later discussion, we normalize the price of the numeraire to be 1 and denote the price of good $l$ by $p$. Firms are able to produce $l$ from the numeraire $m$. Formally, the production set of firm $j$ is\footnote{We assume the cost function $c_j(\cdot)$ is twice differentiable with $c'_j(q_j) > 0$ and $c''_j(q_j) \geq 0$ for all $q_j \geq 0$. We can think of $c_j(q_j)$ as arising from some multiple-input cost function $c_j(\bar{w}, q_j)$, given the fixed vector of factor prices $\bar{w}$.}:
+\begin{align*}
+    Y_j = \{(-z_j, q_j): q_j \geq 0,\ z_j \geq c_j(q_j) \},\ z_j:\ \text{the input of good $m$}
+\end{align*}
+
+For simplicity, we assume that there is no initial endowment of good $l$ so that all consumption of $l$ must be produced by the firms. We denote $i$'s initial endowment of $m$ by $\omega_{mi} > 0$ and let $\omega_m = \sum_i \omega_{mi}$.
 
 
 
