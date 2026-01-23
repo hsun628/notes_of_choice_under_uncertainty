@@ -571,9 +571,9 @@ We have to recognize here that consumers and producers both always have the abil
     \end{itemize}
 \end{definition}
 
-\begin{notebox}{Exercise 10.B.2}
+\begin{exercise}{10.B.2}
     Show that if allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $p^* \gg 0$ form a competitive equilibrium, then allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $\alpha p^*$ also form a competitive equilibrium for any scalar $\alpha > 0$.
-\end{notebox}
+\end{exercise}
 \begin{pf}
     \textbf{Proof:} As $y^*_1, ..., y^*_J$ solves the profit maximization problem given $p^*$, they solve the profit maximization problem under $\alpha p^*$. Plugging this result to conumsers' budget constraints, the utility maximization problem becomes:
     \begin{align*}
@@ -621,8 +621,207 @@ In the later discussion, we normalize the price of the numeraire to be 1 and den
     Y_j = \{(-z_j, q_j): q_j \geq 0,\ z_j \geq c_j(q_j) \},\ z_j:\ \text{the input of good $m$}
 \end{align*}
 
-For simplicity, we assume that there is no initial endowment of good $l$ so that all consumption of $l$ must be produced by the firms. We denote $i$'s initial endowment of $m$ by $\omega_{mi} > 0$ and let $\omega_m = \sum_i \omega_{mi}$.
+For simplicity, we assume that there is no initial endowment of good $l$ so that all consumption of $l$ must be produced by the firms. We denote $i$'s initial endowment of $m$ by $\omega_{mi} > 0$ and let $\omega_m = \sum_i \omega_{mi}$.\\
 
+Applying def. 10.B.3 and lemma 10.B.1, we conclude that the the allocation $(x^*_1,...x^*_I, q^*_1,q^*_J)$ and price $p^*$ constitute a competitive equilibrium if and only if 
+\begin{align*}
+    p^* \leq c'_j(q^*_j),\ &\text{with equality if}\ q^*_j > 0 \quad \forall\ j\\
+    \phi'(x^*_i) \leq p^*,\ &\text{with equality if}\ x^*_ji > 0 \quad \forall\ i\\
+    &\sum_{i=1}^{I} x^*_i = \sum_{j=1}^{J}q^*_j
+\end{align*}
+
+The three neccesary and sufficient conditions imply that the equilibrium allocation and price are independent of the distribution of endowments and the ownership shares. (This is the result of the quasi-linear preference!) In fact, the quasi-linear assumption gives rise to an unlimited unit-for-unit transfer of utility across all consumers throught transfers of the numeraire.
+
+\subsubsection*{Comparative statics}
+
+\subsection*{10.D The fundamental welfare theorems in a partial equilibrium context}
+
+Following the quasi-linear property, we know that the set of utilities that can be attained by appropriately distributing the numeraire is:
+\begin{align*}
+    \{(u_1,...u_I): \sum_{i=1}^{I}u_i \leq \sum_{i=1}^{I}\phi_i(\bar{x}_i) + \omega_m - \sum_{j=1}^{J}c_j(\bar{q}_j) \}
+\end{align*}
+
+We may obtain the \textit{the optimal consumption and production levels for good $l$} by solving 
+\begin{align*}
+    \max_{(x_1,...,x_I), (y_1,...y_J)\geq 0}\ &\sum_{i=1}^{I} \phi_i(x_i) - \sum_{j=1}^{J} c_j(q_j) + \omega_m\\
+    &\text{s.t.}\ \sum_{i=1}^{I} x_i - \sum_{j=1}^{J} = 0
+\end{align*}
+
+Applying the Lagrange (the multiplier is denoted by $\mu$), we find the following conditions:
+\begin{align*}
+    \mu \leq c'_j(q^*_j),\ &\text{with equality if}\ q^*_j > 0 \quad \forall\ j\\
+    \phi'(x^*_i) \leq \mu,\ &\text{with equality if}\ x^*_ji > 0 \quad \forall\ i\\
+    &\sum_{i=1}^{I} x^*_i = \sum_{j=1}^{J}q^*_j,
+\end{align*}
+which is exactly def 10.B.3 with $p^*$ replaced by the Lagrange multiplier $\mu$\footnote{This implies that the competitive price is exactly the shadow price on the resource constraint.}. And this leads to \textit{the first fundamental theorem of welfare economics}.
+
+\begin{proposition}{10.D.1}
+    (\textit{The first fundamental theorem of welfare economics}) If the price $p^*$ and the allocation $(x^*_1,...x^*_I,q^*_1,...,q^*_J)$ constitute a competitive equilibrium, then the allocation is Pareto optimal.
+\end{proposition}
+
+We can also develop a converse of the first fundamental theorem of welfare economics, called \textit{the second fundamental theorem of welfare economics}. Note that the equilibrium price, consumption and production levels are unaffected by changes in consumers' wealth level. Hence, a transfer of one unit of the numeraire from $i$ to $i'$ causes their consumption of the numeraire by exactly the same amount of transfer and no other change. Hence, by properly transfering the endownment of the numeraire, we may attain any utility vector in the boundary of the utility possibility set.
+
+\begin{proposition}{10.D.2}
+    (\textit{The second fundamental theorem of welfare economics}) For any Pareto optimal levels of utility $(u^*_1,...,u^*_I)$, there are transfers of the numeraire $(T_1,...,T_I)$ satisfying $\sum_{i=1}^{I}T_i = 0$, s.t. a competitive equilibrium reached from the endowment $(\omega_{m1}+T_1,..., \omega_{mI}+T_I)$ yields precisely the utility levels $(u^*_1,...,u^*_I)$.
+\end{proposition}
+
+
+\newpage
+
+\section*{Ch16: Equilibrium and its basic welfare properties}
+\hfill
+
+\subsection*{16.B The basic model and definitions}
+
+As in chapter 10, in this chapter, we consider an economy with $I$ consumers, $J$ firms, and $L$ commodities. With our usual notations, such an economy can be charaterized by: 
+\begin{align*}
+    (\{(X_i, \succcurlyeq_i)_{i=1}^I\}, \{Y_j\}_{j=1}^J, \bar{\omega}),
+\end{align*}
+where $X_i, Y_j, \bar{\omega} \in \mathbb{R}^L$ and $\succcurlyeq_i$ is a rational preference relation on $X_i$.
+
+\begin{notebox}{Recall of Ch15}
+    In chapter 15, we are introduced to the useful tool of \textit{edgeworth box} in a \textit{pure exchange economy} (i.e. there is no production involved). Here we quickly review some definitions.\\
+    
+    Note that in general equilibrium context, the wealth level of a consumer is not exogenously given but rather determined by the prices and his/her initial endowment. Hence, given the endowment $\omega_i$, consumer $i$'s \textit{budget set} is a function of prices:
+    \begin{align*}
+        B_i(p) = \{x_i \in \mathbb{R}_+^2: p \cdot x_i \leq p \cdot \omega_i \}
+    \end{align*}     
+\end{notebox}
+
+\begin{definition}{15.B.1}
+     A \textit{Walrasian equilibrium} for an Edgeworth box economy is a price vector $p^* \in \mathbb{R}^L$ and an allocation $(x^*_1, x^*_2)$ s.t. for each consumer $i=1,2$, 
+    \begin{align*}
+        x^*_i \succcurlyeq_i x'_i\ \text{for all}\ x'_i \in B_i(p^*)
+    \end{align*}
+\end{definition}
+
+Note that consumers' demand is homogeneous of degree zero in prices $p = (p_1, p_2)$. As a result, only the relative price is determined in an equilibrium.
+
+\begin{definition}{15.B.2}
+    An allocation $x$ in the Edgeworth box economy is \textit{Pareto optimal} if there is no other allocation $x'$ with $x'_i \succcurlyeq_i x_i$ for $i =1,2$ and $x'_i \succ_i x_i$ for some $i$.
+\end{definition}
+
+The two definitions above can be generalized to the economy in this chapter with production. 
+\begin{definition}{16.B.1}
+    An allocation $(x,y)$ is a specification of consumption vectors $x_i$ and production vectors $y_j$. The allocation $(x,y)$ is \textit{feasible} if
+    \begin{align*}
+        \sum_{i=1}^{I} x_i = \bar{\omega} + \sum_{j=1}^{J} y_j
+    \end{align*}
+We denote the set of feasible allocations by $A$.
+\end{definition}
+\begin{definition}{16.B.2}
+    An allocation $(x,y)$ is \textit{Pareto optimal} if there is no other allocation $(x',y') \in A$ 
+    that \textit{Pareto dominates} it. That is, if there is no feasible allocation $(x',y')$ s.t. $x'_i \succcurlyeq_i x_i$ for all $i$ and $x'_i \succ_i x_i$ for some $i$.
+\end{definition}
+
+\subsubsection*{Private ownership economy}
+
+In an private ownership economy, all goods are traded in the market with publicly known prices that consumers and firms take as unaffected by their own actions. Each consumer also has a claim $\theta_i$ of the firms' profits. Hence, we characterize such an economy by:
+\begin{align*}
+    (\{(X_i, \succcurlyeq_i)\}, \{Y_j\}, \{(\omega_i, \theta_{i1}, ... \theta_{iJ}) \})
+\end{align*}
+
+\begin{definition}{16.B.3}
+    Given a private ownership economy, an allocation $(x^*,y^*)$ and a price vector $p^*$ is a \textit{Walrasian equilibrium} if:
+    \begin{itemize}
+        \item [(i)] For every firm $j$, $y^*_j$ maximizes profits in $Y_j$. That is,
+        \begin{align*}
+            p^* \cdot y_j \leq p^* \cdot y^*_j\ \text{for all}\ y_j \in Y_j
+        \end{align*}
+        \item[(ii)] For every consumer $i$, $x^*_i$ is maximal for $\succcurlyeq_i$ in the budget set
+        \begin{align*}
+            \{x_i \in X_i: p \cdot x_i \leq p \cdot \omega_i + \sum_j \theta_{ij}p \cdot y^*_i \}
+        \end{align*}
+        \item[(iii)] Market clearing: $\sum_i x^*_i = \bar{\omega} + \sum_j y^*_j$
+    \end{itemize}
+\end{definition}
+
+\subsubsection*{Price equilibrium with transfers}
+
+\begin{definition}{16.B.4}
+    Given an economy, an allocation $(x^*,y^*)$ and a price vector $p = (p_1,...p_L)$ form a \textit{price equilibrium with transfers} if there exists an assignment of wealth $(w_1,...w_I)$ with $\sum_i w_i = p \cdot \bar{\omega} + \sum_j p \cdot y^*_j$ s.t.:
+    \begin{itemize}
+        \item[(i)] For every firm $j$, $y^*_j$ maximizes profits in $Y_j$. That is,
+        \begin{align*}
+            p^* \cdot y_j \leq p^* \cdot y^*_j\ \text{for all}\ y_j \in Y_j
+        \end{align*}
+        \item[(ii)] For every consumer $i$, $x^*_i$ is maximal for $\succcurlyeq_i$ in the budget set
+        \begin{align*}
+            \{x_i \in X_i: p \cdot x_i \leq w_i \}
+        \end{align*}
+        \item[(iii)] Market clearing: $\sum_i x^*_i = \bar{\omega} + \sum_j y^*_j$  
+    \end{itemize}
+\end{definition}
+
+\noindent \textbf{Remark}: Note that the notion of price equilibrium with transfers requires only that there be some wealth distribution s.t. $(x^*,y^*)$ and price vector $p$ form an equilibrium. As a result, the Walrasian equilibrium is a special case of price equilibrium with transfers.
+
+
+\subsection*{16.C The first fundamental theorem of welfare economics}
+
+\begin{definition}{16.C.1}
+    The preference relation $\succcurlyeq_i$ on $X_i$ is \textit{locally nonsatiated} if for every $x_i \in X_i$ and every $\epsilon > 0$, there is a $x'_i \in X_i$ s.t. $\|x'_i - x_i\| < \epsilon$ and $x'_i \succ_i x_i$.
+\end{definition}
+
+\begin{exercise}{16.C.1}
+    Show that if a consumption set $X_i \subseteq \mathbb{R^L}$ is non-empty, closed, and bounded, and the preference relation $\succcurlyeq_i$ on $X_i$ is continuous, then $\succcurlyeq_i$ can not be locally nonsatiated.
+\end{exercise}
+\begin{pf}
+    \textbf{Proof}: Since $X_i \subseteq \mathbb{R}^L$ is non-empty, closed, and bounded, it is compact.\\
+    
+    As $\succcurlyeq_i$ is continuous, it admits a continuous utility representation $u_i(\cdot)$ on $X_i$. Hence, we know there exists a maximal element $x_i \in X_i$. Hence, there exists no $x'_i \in X_i$ s.t. $x'_i \succ x_i$. That is, $\succcurlyeq_i$ is not locally nonsatiated.
+
+    \hfill $\square$
+\end{pf}
+
+A direct result of the exercise is that if $\succcurlyeq_i$ is continuous and locally nonsatiated, then any closed $X_i$ must be unbounded.
+
+\begin{proposition}{16.C.1}
+    (\textit{The first fundamental theorem of welfare economics}) If preferences are locally nonsatiated and if $(x^*,y^*,p)$ is a price equilibrium with transfers, then the allocation $(x^*, y^*)$ is Pareto optimal. In particular, any Walrasian equilibrium allocation is Pareto optimal.
+\end{proposition}
+\begin{pf}
+    \textbf{Proof}: Let $(x^*,y^*)$ be a price equilibrium with transfers and the associated wealth levels are $w_1,...w_I$.\\
+    
+    Suppose by contradiction, there exists a feasible allocation $(x,y)$ that Pareto dominates $(x^*,y^*)$. We know that
+    \begin{align*}
+        x_i \succcurlyeq_i x^*_i\ \text{for all}\ i,\ \text{and}\ x_i \succ_i x^*_i\ \text{for some}\ i
+    \end{align*}
+    By def 16.B.4, we know that if $x_i \succ_i x^*_i$, then $p \cdot x_i > w_i$. That is, $x_i$ must be unaffordable for consumer $i$.\\
+
+    Now to apply this further, we claim the following (exercise 16.C.2):
+    \begin{claim}{}
+        Suppose $\succcurlyeq_i$ is a locally nonsatiated preference relation and $x^*_i$ is maximal in $\{x_i \in X_i: p \cdot x_i \leq w_i\}$. If $x_i \succcurlyeq_i x^*_i$ then $p \cdot x_i \geq w_i$.
+    \end{claim}
+    \begin{pf}
+        \textbf{Proof}: Suppose by contradiction that $x_i \succcurlyeq_i x^*_i$ and $p \cdot x_i < w_i$.\\
+
+        As $\{x_i \in X_i: p \cdot x_i < w_i \}$ is an open set, we can find $\epsilon > 0 $ s.t. 
+        \begin{align*}
+            B(x_i, \epsilon) \subseteq  \{x_i \in X_i: p \cdot x_i < w_i \}
+        \end{align*}
+
+        Fix such $\epsilon > 0$. Local nonsatiation implies there exists $x'_i \in B(x_i, \epsilon)$ s.t. $x'_i \succ x_i$. By transitivity ($\succcurlyeq_i$ is rational), we know $x'_i \succ x^*_i$ and $p \cdot x'_i < w_i$. Hence, we conclude that $x^*_i$ is not maximal in the feasible consumption set, which is a contradiction. We conclude that $x_i \succcurlyeq_i x^*_i$ implies $p \cdot x_i \geq w_i$.
+
+        \hfill $\square$
+    \end{pf}
+    This claim simply states that if a bundle $x_i$ is at least as good as the optimal bundle $x^*_i$, then it is at best just affordable.\\
+
+    Consider an allocation $(x,y)$ that Pareto dominates $(x^*,y^*)$ (i.e. $x_i \succcurlyeq_i x^*_i$ for all $i$ and $x_i \succ_i x^*_i$ for some $i$). We must have $p \cdot x_i \geq w_i$ for all $i$ and $p \cdot x_i > w_i$ for some $i$.
+\end{pf}   
+\begin{pf}{}
+    Hence, we have 
+    \begin{align*}
+        \sum_i p \cdot x_i > \sum_i w_i = p \cdot \bar{\omega} + \sum_j p \cdot y^*_j
+    \end{align*}
+    Note that by def 16.B.4, $y^*_j$ maximizes profits for all $j$. Thus, we obtain
+    \begin{align*}
+        \sum_i p \cdot x_i > p \cdot \bar{\omega} + \sum_j p \cdot y^*_j \geq p \cdot \bar{\omega} + \sum_j p \cdot y_j
+    \end{align*}
+    This shows that $(x,y)$ is not feasible and as a result, $(x^*,y^*)$ is Pareto optimal.
+
+    \hfill $\square$
+\end{pf}
+
+\subsection*{16.D The second fundamental theorem of welfaere economics}
 
 
 
