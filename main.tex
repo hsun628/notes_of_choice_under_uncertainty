@@ -679,7 +679,7 @@ As in chapter 10, in this chapter, we consider an economy with $I$ consumers, $J
 \end{align*}
 where $X_i, Y_j, \bar{\omega} \in \mathbb{R}^L$ and $\succcurlyeq_i$ is a rational preference relation on $X_i$.
 
-\begin{notebox}{Recall of Ch15}
+\begin{notebox}{Recall Ch15}
     In chapter 15, we are introduced to the useful tool of \textit{edgeworth box} in a \textit{pure exchange economy} (i.e. there is no production involved). Here we quickly review some definitions.\\
     
     Note that in general equilibrium context, the wealth level of a consumer is not exogenously given but rather determined by the prices and his/her initial endowment. Hence, given the endowment $\omega_i$, consumer $i$'s \textit{budget set} is a function of prices:
@@ -821,13 +821,251 @@ A direct result of the exercise is that if $\succcurlyeq_i$ is continuous and lo
     \hfill $\square$
 \end{pf}
 
-\subsection*{16.D The second fundamental theorem of welfaere economics}
+\subsection*{16.D The second fundamental theorem of welfare economics}
+
+The first fundamental theorem of welfare economics gives no implication about the desirability of the equilibrium allocation from the distributional perspective. Meanwhile, the second fundamental theorem of welfare economics states the partial converse of it, that a Pareto optimal allocation can be supported as a price equilibrium with transfers after a suitable redistribution of initial endowments under some conditions. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figs/fig.15.c.3.png}
+\end{figure}
+
+Chapter 15 illustrates many examples of failure of the fundamental theorems of welfare economics when some conditions are not satisfied. To deal with such failures and establish the second fundamental theorem of welfare economics, we introduce the following concept of \textit{price quasi-equilibrium with transfers} which is a weaker version of the price equilibrium with transfers.
+
+\begin{definition}{16.D.1}
+    (\textit{Price quasi-equilibrium with transfers}) Given an economy specified by $(\{(X_i, \succcurlyeq_i)\}, \{Y_j\}, \bar{\omega})$, an allocation $(x^*,y^*)$ and a price vector $p \neq \mathbf{0}$ form a \textit{price quasi-equilibrium with transfers} if there is an assignment of wealth $(w_1,...,w_I)$ with $\sum_i w_i = p \cdot \bar{\omega} + \sum_j p \cdot y^*_j$ s.t.
+    \begin{itemize}
+        \item[(i)] For every firm $j$, $y^*_j$ maximizes profits in $Y_j$. That is,
+        \begin{align*}
+            p^* \cdot y_j \leq p^* \cdot y^*_j\ \text{for all}\ y_j \in Y_j
+        \end{align*}
+        \item[(ii)] For every consumer $i$, if $x_i \succ_i x^*_i$ then $p \cdot x_i \geq w_i$
+        \item[(iii)] Market clearing: $\sum_i x^*_i = \bar{\omega} + \sum_j y^*_j$  
+    \end{itemize}
+\end{definition}
+
+\noindent \textbf{Remark}: def.16.D.1 weakens def.16.B.4 by replacing the condition that "anything preferred to $x^*_i$ must cost more than $w_i$" (i.e. if $x_i \succ_i x^*_i$ then $p \cdot x_i > w_i$) with "anything preferred to $x^*_i$ can't cost less than $w_i$" (i.e. if $x_i \succ_i x^*_i$ then $p \cdot x_i \geq w_i$). \\
+
+Before introducing the statement of the second fundamental theorem of welfare economics, we recall the separating hyperplane theorem, which is the essence of the proof of the theorem.
+
+\begin{theorem}{}
+    (\textit{Separating hyperplane theorem}) Suppose that $B \subseteq \mathbb{R}^N$ is convex and closed and that $x \notin B$. Then, there exists $p \neq \mathbf{0} \in \mathbb{R}^N$ s.t. $p \cdot x > c$ and $p \cdot y < c$ for all $y \in B$.
+\end{theorem}
+
+\begin{pf}
+    \textbf{Proof}: Consider $x \notin B$ and the point $z \in B$ that is the closest point in $B$ to $x$.\\
+    
+    Let $p = x-z$ and $c' = p \cdot z$, we see that 
+    \begin{align*}
+        p \cdot x - c' = p \cdot (x-z) = \|x-z\|^2 > 0\ \Rightarrow p \cdot x > c'
+    \end{align*}
+    For every point $y \in B$, the vector $p$ and $y-z$ cannot make an acute angle. (otherwise $z$ is not the nearest point to $x$) That is,
+    \begin{align*}
+        p \cdot (y-z) = p \cdot y - c' \leq 0\ \Rightarrow p \cdot y \leq c'
+    \end{align*}
+    Let $c = c' + \epsilon$, where $\epsilon > 0$ is taken small enough for $p \cdot x > c' + \epsilon = c > p \cdot y$ as desired.
+
+    \hfill $\square$
+\end{pf}
+
+The following is the genralized version of the separating hyperplane theorem.
+
+\begin{theorem}{}
+    (\textit{Separating hyperplane theorem}) Consider two non-empty disjoint convex subsets $A,B$ of $\mathbb{R}^N$. Then there exists a non-zero vector $v$ and a real number $c$ s.t.
+    \begin{align*}
+        x \cdot v \geq c\ \text{and}\ y \cdot v \leq c\ \text{for all}\ x \in A, y \in B
+    \end{align*}
+\end{theorem}
+
+\begin{proposition}{16.D.1}
+    (\textit{Second fundamental theorem of welfare economics}) Consider an economy specified by $(\{(X_i, \succcurlyeq_i)\}, \{Y_j\}, \bar{\omega})$. Suppose that every $Y_j$ is \textit{convex} and every preference relation $\succcurlyeq_i$ is \textit{convex} (i.e. the set $\{x'_i \in X_i: x'_i \succcurlyeq_i x_i\}$ is convex) and \textit{locally nonsatiated}. Then, for every Pareto optimal allocation $(x^*,y^*)$, there is a price vector $p \neq \mathbf{0}$ s.t. $(x^*,y^*,p)$ is a price quasi-equilibrium with transfers.
+\end{proposition}
+\begin{pf}
+    \textbf{Proof}: For each $i$, define the set $V_i = \{x_i \in X_i: x_i \succ_i x^*_i\} \subseteq \mathbb{R}^L$. Then define the set of aggregate consumption bundles and the aggregate production set as 
+    \begin{align*}
+        V &= \sum_i V_i = \left\{\sum_i x_i \in \mathbb{R}^L: x_i \in V_i\ \forall\ i \right\}\\
+        Y &= \sum_i Y_i = \left\{\sum_i y_i \in \mathbb{R}^L: y_i \in Y_i\ \forall\ i \right\}
+    \end{align*}
+    Now we prove the following steps:\\
+
+    Step 1: Every $V_i$ is convex.
+    \begin{pf}
+        \textit{Proof}: Suppose that $x_i, x'_i \in V_i$ and $\alpha \in [0,1]$. By completeness of $\succcurlyeq_i$, we assume WLOG that $x_i \succcurlyeq_i x'_i$. Then, by convexity of $\succcurlyeq_i$, we have
+        \begin{align*}
+            \alpha x_i + (1-\alpha)x'_i \succcurlyeq_i \alpha x^*_i + (1-\alpha)x^*_i = x^*_i
+        \end{align*}
+        Note the preference relation is also transitive, we conclude that $\alpha x_i + (1-\alpha)x'_i \in V_i$. Hence, $V_i$ is convex.
+
+        \hfill $\square$
+    \end{pf}
+    Step 2: $V$ and $Y+\{\bar{\omega}\}$ are convex.
+    \begin{pf}
+        \textit{Proof}: Simply check that the sum of two convex sets is convex.
+
+        \hfill $\square$
+    \end{pf}
+\end{pf}
+\begin{pf}
+    Step 3: $V \cap (Y+\bar{\omega}) = \emptyset$.
+    \begin{pf}
+        \textit{Proof}: This follows directly from the Pareto optimality of $(x^*_i, y^*_j)$.
+
+        \hfill $\square$
+    \end{pf}
+    Step 4: There is a non-zero vector $p$ and a real number $r$ s.t. $p \cdot z \geq r$ for all $z \in V$ and $p \cdot z \leq r$ for all $z \in Y+ \{\bar{\omega}\}$.
+    \begin{pf}
+        \textit{Proof}: This follows from the separating hyperplane theorem.
+
+        \hfill $\square$  
+    \end{pf}
+    Step 5: If $x_i \succcurlyeq_i x^*_i$ for all $i$, then $p \cdot (\sum_i x_i) \geq r$.
+    \begin{pf}
+        \textit{Proof}: By local nonsatiation, for each $i$ there is a consumption bundle $x'_i$ that is arbitrarily close to $x_i$ s.t. $x'_i \succ_i x_i$. Hence, $\sum_i x'_i \in V$ and $p \cdot \sum_i x'_i \geq r$.\\
+        
+        Taking the limit, we have $p \cdot \sum_i x_i \geq r$.
+
+        \hfill $\square$
+    \end{pf}
+    Step 6: $p \cdot (\sum_i x^*_i) = p \cdot (\bar{\omega} + \sum_j y^*_j) = r$
+    \begin{pf}
+        \textit{Proof}: By step 5, we have $p \cdot (\sum_i x^*_i) \geq r$.\\
+        
+        On the other hand, note $\sum_i x^*_i = \sum_j y^*_j + \bar{\omega} \in Y + \{\bar{\omega}\}$. So we have by step 4 that $\sum_i x^*_i \leq r$.
+
+        \hfill $\square$
+    \end{pf}
+    Step 7: For every $j$, we have $p \cdot y_j \leq p \cdot y^*_j$ for all $y_j \in Y_j$. (condition (i))
+    \begin{pf}
+        \textit{Proof}: Note that for all firm $j$ and all $y_j \in Y_j$, we have $y_j + \sum_{k \neq j}y^*_k \in Y$. Therefore, by step 4 and 6
+        \begin{align*}
+            p \cdot \left(\bar{\omega} + y_j + \sum_{k \neq j}y^*_k\right) \leq r = p \cdot \left(\bar{\omega} + \sum_j y^*_j \right)
+        \end{align*}
+        Hence, $p \cdot y_j \leq p \cdot y^*_j$.
+
+        \hfill $\square$
+    \end{pf}
+\end{pf}
+\begin{pf}
+    Step 8: For every $i$, if $x_i \succ_i x^*_i$, then $p \cdot x_i \geq p \cdot x^*_i$. (condition (ii))
+    \begin{pf}
+        \textit{Proof}: Consider any $x_i \succ_i x^*_i$, we have by step 5 and 6 that
+        \begin{align*}
+            p \cdot \left(x_i + \sum_{k \neq i}x^*_k \right) \leq p \cdot \left(\sum_i x^*_i \right)
+        \end{align*}
+        Hence, $p \cdot x_i \geq p \cdot x^*_i$.
+
+        \hfill $\square$
+    \end{pf}
+    Step 9: Thhe wealth levels $w_i = p \cdot x^*_i$ for all $i$ support $(x^*,y^*,p)$ as a price quasi-equilibrium with transfers.
+    \begin{pf}
+        \textit{Proof}: We are left to check that condition (iii) holds. And this follows from the feasibility of the Pareto optimal allocation $(x^*, y^*)$.
+
+        \hfill $\square$
+    \end{pf}
+\end{pf}
+
+The figure below illustrates what we've done in the proof.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{figs/fig.16.d.1.png}
+\end{figure}
+
+The next problem we would like to address is that under what conditions, a quasi-equilibrium can be supported as an equilibrium. To this end, we need to explore the relation between the condition (ii) in these two different definitions.
+
+\begin{proposition}{16.D.2}
+    Let $X_i$ be convex and $\succcurlyeq_i$ be continuous.\\
+    
+    Suppose that $x^*_i \in X_i, y^*_j \in Y_j, p$, and $w_i$ are s.t.
+    \begin{align*}
+        x_i \succ_i x^*_i\ \Rightarrow\ p \cdot x_i \geq w_i
+    \end{align*}
+    Then, if there is a consumption vector $x'_i \in X_i$ s.t. $p \cdot x'_i < w_i$, then
+    \begin{align*}
+        x_i \succ_i x^*_i\ \Rightarrow\ p \cdot x_i > w_i
+    \end{align*}
+\end{proposition}
+\begin{pf}
+    \textbf{Proof}: The proof is depicted in the figure below.
+    
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figs/fig.16.d.3.png}
+    \end{figure}
+
+    Suppose by contradiction, there exists $x_i \succ_i x^*_i$ with $p \cdot x_i = w_i$.\\
+    
+    Since there exists $x'_i \in X_i$ s.t. $p \cdot x'_i < w_i$, we have $\alpha x_i + (1-\alpha)x'_i \in X_i$ and $p \cdot (\alpha x_i + (1-\alpha)x'_i) < w_i$ for all $\alpha \in [0,1)$. \\
+
+    Taking $\alpha$ close enough to 1, the continuity of $\succcurlyeq_i$ implies that $\alpha x_i + (1-\alpha)x'_i \succ_i x^*_i$, which is a contradiction as the bundle is strictly better than $x^*_i$ while costs less than $w_i$.
+
+    \hfill $\square$
+\end{pf}
+
+\begin{proposition}{16.D.3}
+    Suppose that $X_i$ is convex for all $i$, $\mathbf{0} \in X_i$, and $\succcurlyeq_i$ is continuous. Then any price quasi-equilibrium with transfers that has $(w_1, ...w_I) \gg 0$ is a price equilibrium with transfers.
+\end{proposition}
+\begin{pf}
+    \textbf{Proof}: This is a direct consequence of prop 16.D.2. 
+
+    \hfill $\square$
+\end{pf}
+
+\subsection*{16.E Pareto optimality and social welfare optima}
+
+\begin{definition}{}
+    Given the continuous utlity functions $u_i(\cdot)$, we capture the attainable vectors of utility levels by the \textit{utility possibility set}:
+\begin{align*}
+    U = \{(u_1,...u_I) \in \mathbb{R}^I:\ &\text{there is a feasible allocation}\ (x,y)\ \text{s.t.}\ \\
+      &u_i \leq u_i(x_i)\ \text{for}\ i = 1,...,I \}
+\end{align*}
+
+Also, we define the \textit{Pareto frontier} by
+\begin{align*}
+    UP = \{(u_1,...u_I) \in U :\ &\text{there is no}\ (u'_1,...,u'_I) \in U\ \text{s.t.}\ u'_i \geq u_i\\
+    &\text{for all}\ i\ \text{and}\ u'_i > u_i\ \text{for some}\ i \}
+\end{align*}
+\end{definition}
+
+\begin{proposition}{16.E.1}
+    A feasible allocation $(x,y) = (x_1,...,x_I,y_1,...,y_J)$ is a Pareto optimum \textit{if and only if} $(u_1(x_1),...,u_I(x_I)) \in UP$. 
+\end{proposition}
+\begin{pf}
+    \textbf{Proof}: $(\Rightarrow)$ Suppose $(u_1(x_1),...,u_I(x_I)) \notin UP$, then there exists $(u'_1,...,u'_I) \in U$ s.t. $u'_i \geq u_i$ for all $i$ and $u'_i > u_i$ for some $i$. This shows that $(x',y')$ Pareto dominates $(x,y)$, which is a contradiction.
+
+    \hfill $\square$
+
+    $(\Leftarrow)$ Suppose by contradiction that $(x,y)$ is not Pareto optimal, then there exists some feasible allocation $(x',y')$ that Pareto dominates $(x,y)$. That is, $u_i(x'_i) \geq u_i(x_i)$ for all $i$ and $u_i(x'_i) > u_i(x_i)$ for some $i$. Hence, $(x,y) \notin UP$, which is a contradiction.
+
+    \hfill $\square$
+\end{pf}
+
+\begin{definition}{}
+    (\textit{Social welfare function}) We describe the society's distributional principle in a \textit{social welfare function} $W(u_1,...,u_I)$. In particular, we take the linear form s.t $W(u_1,...,u_I) = \sum_i \lambda_i u_i = \lambda \cdot u,\ \lambda \geq 0$.
+\end{definition}
+
+\begin{proposition}{16.E.2}
+    If $u^*$ is a solution to the social welfare maximization problem with $\lambda \gg 0$, then $u^* \in UP$. Moreover, if the utility possibility set $U$ is convex, then for any $\tilde{u} \in UP$, there exists a vector $\lambda \geq 0,\ \lambda \neq \mathbf{0}$ s.t. $\lambda \cdot \tilde{u} \geq \lambda \cdot u$ for all $u \in U$.
+\end{proposition}
+\begin{pf}
+    \textbf{Proof}: (i) Suppose $u^*$ is not Pareto optimal, then there exists $u \in U$ with $u \geq u^*$ and $u \neq u^*$. Combining with the fact that $\lambda \gg 0$, we have $\lambda \cdot u > \lambda \cdot u^*$.
+
+    \hfill $\square$
+
+    (ii) Suppose $\tilde{u} \in UP$, then $\tilde{u}$ is in the boundary of $U$. By the separating hyperplane theorem, there exists a vector $\lambda \neq \mathbf{0}$ s.t. $\lambda \cdot \tilde{u} \geq \lambda \cdot u$ for all $u \in U$. Moreover, $\lambda \geq 0$ as otherwise by choosing $u \in U$ with $u_i < 0$ large enough in absolute value, we would have $\lambda \cdot u > \lambda \cdot \tilde{u}$.
+
+    \hfill $\square$
+\end{pf}
+
+\noindent \textbf{Remark}: Prop.16.E.2 shows that for ecnomies with convex utility possibility sets, every linear social welfaer optimum with weights $\lambda \gg 0$ is Pareto optimal, and every Pareto optimal allocation can be supported as a social welfare optimum with some $\lambda \geq 0$.
 
 
+\newpage
 
+\section*{Ch19: General equilibrium under uncertainty}
+\hfill
 
-
-
+\subsection*{A market economy with contingent commodities: description}
 
 
 
