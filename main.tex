@@ -12,7 +12,7 @@
 
 \begin{document}
 
-\title{Notes of Choice under Uncertainty}
+\title{Notes on Choice under Uncertainty}
 \author{Hsun}
 \date{January 8, 2026}
 \maketitle
@@ -21,7 +21,7 @@
 \newpage
 
 \begin{abstract}
-    This notes follows MWG in preparation of micro-theory II course. Mainly focus on the part of uncertainty. Following the syllabus of Professor Park, we focus on the chapter 6, 10 (Partial equilibrium), 16, 19, 13 with this specific ordering.
+    These notes follow MWG in preparation for the Micro Theory II course. They mainly focus on choice under uncertainty. Following Professor Park's syllabus, we focus on Chapters 6, 10 (partial equilibrium), 16, 19, and 13 in this order.
 \end{abstract}
 
 \newpage
@@ -34,7 +34,7 @@
 
 First, we introduce the notation and remarks.
 
-\begin{notebox}{Notations}
+\begin{notebox}{Notation}
     \begin{itemize}
         \item $C$: the set of all possible outcomes.
         \item $X$: the set of consumption bundles.
@@ -48,21 +48,21 @@ First, we introduce the notation and remarks.
 \end{itemize}
 
 \begin{definition}{6.B.1}
-    (\textit{Simple lottery}) A \textit{simple lottery} $L$ is a list $L = (p_1, ..., p_N)$ with $p_n \geq 0$ for all n and $\sum_n p_n = 1$.
+    (\textit{Simple lottery}) A \textit{simple lottery} $L$ is a list $L = (p_1, ..., p_N)$ with $p_n \geq 0$ for all $n$ and $\sum_n p_n = 1$.
 \end{definition}
 
 \begin{definition}{6.B.2}
-    (\textit{Compound lottery}) Given K simple lotteries $L_k = (p_1^k, ..., p_N^k)$ and probabilities $\alpha_k \geq 0$ with $\sum_k \alpha_k = 1$, the \textit{compound lottery} $(L_1, ..., L_K; \alpha_1, ..., \alpha_K)$ is the risky alternative that yields the simple lottery $L_k$ with probability $\alpha_k$.
+    (\textit{Compound lottery}) Given $K$ simple lotteries $L_k = (p_1^k, ..., p_N^k)$ and probabilities $\alpha_k \geq 0$ with $\sum_k \alpha_k = 1$, the \textit{compound lottery} $(L_1, ..., L_K; \alpha_1, ..., \alpha_K)$ is the risky alternative that yields the simple lottery $L_k$ with probability $\alpha_k$.
 \end{definition}
 
-In a simple lottery, the outcomes that may result are certain. For any compound lottery $(L_1, ..., L_K; \alpha_1, ..., \alpha_K)$, we can calculate a corresponding \textit{reduced lottery} as the simple lottery $\mathrm{L} = (p_1, ..., p_N)$ that generates the same ultimate distribution over outcomes, where $p_n = \alpha_1 p_n^1 + ... + \alpha_Kp_n^K$. Therefore, $L = \alpha_1 L_1 + ... + \alpha_K L_K$.
+In a simple lottery, the outcomes that may result are certain. For any compound lottery $(L_1, ..., L_K; \alpha_1, ..., \alpha_K)$, we can calculate a corresponding \textit{reduced lottery} as the simple lottery $\mathrm{L} = (p_1, ..., p_N)$ that generates the same ultimate distribution over outcomes, where $p_n = \alpha_1 p_n^1 + \cdots + \alpha_K p_n^K$. Therefore, $L = \alpha_1 L_1 + \cdots + \alpha_K L_K$.
 
 \subsubsection*{Preference over lotteries}
 
-We assume that \textit{for any risky alternative, only the reduced lottery over final outcomes is relevant to the decision maker.}\footnote{This is the reduction axiom in the notes of investment theory.} Therefore, we let $\mathcal{L}$ to be the set of all simple lotteries over the set of outcomes $C$. 
+We assume that \textit{for any risky alternative, only the reduced lottery over final outcomes is relevant to the decision maker.}\footnote{This is the reduction axiom in the notes of investment theory.} Therefore, we let $\mathcal{L}$ be the set of all simple lotteries over the set of outcomes $C$. 
 
 \begin{definition}{6.B.3}
-    (\textit{Continuity axiom}) The preference relation $\succcurlyeq$ on the space of simple lotteries $\mathcal{L}$ is \textit{continuous} if or any $L, L', L'' \in \mathcal{L}$, the sets
+    (\textit{Continuity axiom}) The preference relation $\succcurlyeq$ on the space of simple lotteries $\mathcal{L}$ is \textit{continuous} if for any $L, L', L'' \in \mathcal{L}$, the sets
     \begin{align*}
         &\{\alpha \in [0,1]: \alpha L + (1-\alpha)L' \succcurlyeq L'' \} \subset [0,1],\\
         &\{\alpha \in [0,1]: L'' \succcurlyeq \alpha L + (1-\alpha)L' \} \subset [0,1]
@@ -70,7 +70,7 @@ We assume that \textit{for any risky alternative, only the reduced lottery over 
     are closed.
 \end{definition}
 
-The continuous axiom therefore implies that small changes in probabilities do not change the ordering between two lotteries. Moreover, it excludes the case that the decision maker has lexicographic preferences for alternatives with a zero probability of some outcome. As in ch3, the continuity axiom implies the existence of a utility function representation.\footnote{See prop. 3.C.1: Suppose the rational $\succcurlyeq$ on $X$ is continuous, then there is a continuous utility function $u(x)$ that represents $\succcurlyeq$.}
+The continuity axiom therefore implies that small changes in probabilities do not change the ordering between two lotteries. Moreover, it excludes the case that the decision maker has lexicographic preferences for alternatives with a zero probability of some outcome. As in Ch3, the continuity axiom implies the existence of a utility function representation.\footnote{See prop. 3.C.1: Suppose the rational $\succcurlyeq$ on $X$ is continuous, then there is a continuous utility function $u(x)$ that represents $\succcurlyeq$.}
 
 \begin{definition}{6.B.4}
     (\textit{Independence axiom}) The preference relation $\succcurlyeq$ on $\mathcal{L}$ satisfies the \textit{independence axiom} if for all $L, L', L'' \in \mathcal{L}$ and $\alpha \in (0,1)$ we have
@@ -82,9 +82,9 @@ The continuous axiom therefore implies that small changes in probabilities do no
 The intuition behind the independence axiom is that the preference ordering preserves even if we mix the two lotteries with a third one. Note this axiom is the most important but controversial part of the EU theory.
 
 \begin{definition}{6.B.5}
-    (\textit{VNM utility function}) The utility function $U: \mathcal{L} \rightarrow \mathbb{R}$ has a \textit{VNM utility function} form if there is an assignment of numbers $(u_1, ..., u_N)$ to the $N$ outcomes in $C$ such that for any simple lottery $L = (p_1, ..., p_N) \in \mathcal{L}$ we have
+    (\textit{VNM utility function}) The utility function $U: \mathcal{L} \rightarrow \mathbb{R}$ has a \textit{VNM utility function} form if there is an assignment of numbers $(u_1, \dots, u_N)$ to the $N$ outcomes in $C$ such that for any simple lottery $L = (p_1, \dots, p_N) \in \mathcal{L}$ we have
     \begin{align*}
-        U(L) = u_1p_1 + ... + u_Np_N
+        U(L) = u_1 p_1 + \cdots + u_N p_N
     \end{align*}
 \end{definition}
 
@@ -93,7 +93,7 @@ The intuition behind the independence axiom is that the preference ordering pres
     \begin{align*}
         U\left(\sum_{k=1}^K \alpha_k L_k\right) = \sum_{k=1}^K \alpha_k U(L_k)
     \end{align*}
-    for any $K$ lotteries $L_k\in \mathcal{L}$ and probabilities ($\alpha_1, ..., \alpha_K) \geq 0$ with $\sum_{k=1}^K \alpha_k = 1$.
+    for any $K$ lotteries $L_k\in \mathcal{L}$ and probabilities $(\alpha_1, ..., \alpha_K) \geq 0$ with $\sum_{k=1}^K \alpha_k = 1$.
 \end{proposition}
 
 \begin{pf}
@@ -110,18 +110,18 @@ The intuition behind the independence axiom is that the preference ordering pres
 By the above proposition, we know that the expected utility property is a \textit{cardinal} property of utility functions defined on the space of lotteries.
 
 \subsubsection*{Expected utility theorem}
- From above discussion, we know that if a decision maker's preference over lotteries satisfies the axioms, then its preference can be represented by an VNM utility function. (the proof is omitted) We further discuss the properties of indifference curves.\\
+ From the discussion above, we know that if a decision maker's preference over lotteries satisfies the axioms, then it can be represented by a VNM utility function. (The proof is omitted.) We further discuss the properties of indifference curves.\\
 
- Since the expected utility form is linear in probabilities, the representability by the expected utility form is equivalent to the indifference curves being straight and parallel lines. In particular, this is the result of independence axiom. For example,  
+ Since the expected utility form is linear in probabilities, representability by the expected utility form is equivalent to the indifference curves being straight and parallel lines. In particular, this is a result of the independence axiom. For example,  
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{figs/fig.6.b.5.png}
 \end{figure}
 
-\subsection*{6.C Money lotteires and Risk aversion}
+\subsection*{6.C Money lotteries and risk aversion}
 
-Let continuous varaible $x$ denote the amount of money and the CDF $F: \mathbb{R}\ \rightarrow\ [0,1]$ be the monetary lottery. Also, we take the lotttery space $\mathcal{L}$ to be the set of all CDF over non-negative amounts of money.
+Let the continuous variable $x$ denote the amount of money, and let the CDF $F: \mathbb{R} \rightarrow [0,1]$ describe the monetary lottery. Also, we take the lottery space $\mathcal{L}$ to be the set of all CDFs over non-negative amounts of money.
 
 \subsubsection*{Risk aversion}
 
@@ -139,16 +139,16 @@ If one's preference admits an expected utility form, then one is risk averse if 
 \begin{align*}
     \int u(x) dF(x) \leq u \left( \int x dF(x) \right) \quad \text{for all}\ F(\cdot).
 \end{align*}
-The inequality is called the \textit{Jenson's inequality}. Therefore, we see that (strict) risk aversion is equivalent to the (strict) concavity of $u(\cdot)$.
+The inequality is called \textit{Jensen's inequality}. Therefore, we see that (strict) risk aversion is equivalent to the (strict) concavity of $u(\cdot)$.
 
 \begin{definition}{6.C.2}
     (\textit{Certainty equivalent}) Given $u(\cdot)$, we define 
     \begin{itemize}
-        \item The \textit{certainty equivalent} of $F(\cdot)$, $c(F,u)$, is the amount of money for which the agent is indifferent between the gable $F(\cdot)$ and the certain amount $c(F,u)$. That is,
+        \item The \textit{certainty equivalent} of $F(\cdot)$, $c(F,u)$, is the amount of money for which the agent is indifferent between the gamble $F(\cdot)$ and the certain amount $c(F,u)$. That is,
         \begin{align*}
             u(c(F,u)) = \int u(x) dF(x)
         \end{align*}
-        \item For any fixed amount of money $x$ and $\epsilon>0$, the \textit{probability premium}, $\pi(x,\epsilon,u)$, is the excess in winning probability ovver fair odds that makes the individual indifferent between the certain outcome $x$ and a gamble betweeen the two outcomes $x + \epsilon$ and $x - \epsilon$. That is, 
+        \item For any fixed amount of money $x$ and $\epsilon>0$, the \textit{probability premium}, $\pi(x,\epsilon,u)$, is the excess winning probability over fair odds that makes the individual indifferent between the certain outcome $x$ and a gamble between the two outcomes $x + \epsilon$ and $x - \epsilon$. That is, 
         \begin{align*}
             u(x) = (\frac{1}{2} + \pi(x,\epsilon,u))u(x + \epsilon) + (\frac{1}{2} - \pi(x,\epsilon,u))u(x - \epsilon)
         \end{align*}
@@ -156,7 +156,7 @@ The inequality is called the \textit{Jenson's inequality}. Therefore, we see tha
 \end{definition}
 
 \begin{proposition}{6.C.1}
-    Suppose a decision maker is an expected utility maximizer with $u(\cdot)$ on amounts of money, then the following are quivalent:
+    Suppose a decision maker is an expected utility maximizer with $u(\cdot)$ on amounts of money, then the following are equivalent:
     \begin{itemize}
         \item[(i)] The decision maker is risk averse
         \item[(ii)] $u(\cdot)$ is concave
@@ -228,9 +228,9 @@ Hence,
 \begin{align*}
     r_A(x) = 4\pi'(0)
 \end{align*}
-This means that $r_A(x)$ measures \textit{the rate at which the probability premium increases at certainty with small risk.}\\
+This means that $r_A(x)$ measures \textit{the rate at which the probability premium increases, near certainty, with small risk.}\\
 
-To compare the level of risk aversion across agents, the following criterion seem feasible:
+To compare the level of risk aversion across agents, the following criteria seem feasible:
 \begin{itemize}
     \item[(i)] $r_A(x, u_2) \geq r_A(x, u_1)$ for all $x$
     \item[(ii)]  There exists an increasing concave function $\psi(\cdot)$ such that $u_2(x) = \psi(u_1(x))$ at all $x$. In other words, $u_2(\cdot)$ is “more concave” than $u_1(\cdot)$
@@ -267,7 +267,7 @@ To compare the level of risk aversion across agents, the following criterion see
     \hfill $\square$
 \end{pf}
 
-\noindent \textbf{Reamrk:} Note that the "more-risk-averse-than" relation is transitive but \textit{not complete}. That is, we generally have $r_A(x,u_1) > r_A(x,u_2)$ for some $x$ but $r_A(x,u_1) < r_A(x,u_2)$ for some other $x'$.
+\noindent \textbf{Remark:} Note that the "more-risk-averse-than" relation is transitive but \textit{not complete}. That is, we generally have $r_A(x,u_1) > r_A(x,u_2)$ for some $x$ but $r_A(x,u_1) < r_A(x,u_2)$ for some other $x'$.
 
 \begin{definition}{6.C.4}
     $u(\cdot)$ for money exhibits \textit{decreasing absolute risk aversion} if $r_A(x,u)$ is a decreasing function of $x$.
@@ -278,7 +278,7 @@ To compare the level of risk aversion across agents, the following criterion see
     \begin{itemize}
         \item[(i)] $u(\cdot)$ exhibits decreasing absolute risk aversion
         \item[(ii)] For $x_2 < x_1$, $u_2(z) = u(x_2+z)$ is a concave transformation of $u_1(z) = u(x_1+z)$
-        \item[(iii)] For any rsik $F(z)$, the certainty equivalent formed by adding risk $z$ at wealth level $x$, denoted $c_x$ is s.t. $(x - c_x)$ is decreasing in $x$. That is, the higher the wealth level $x$ is, the less one is willing to pay to get rid of the risk
+        \item[(iii)] For any risk $F(z)$, the certainty equivalent formed by adding risk $z$ at wealth level $x$, denoted $c_x$, is such that $(x - c_x)$ is decreasing in $x$. That is, the higher the wealth level $x$ is, the less one is willing to pay to get rid of the risk.
         \item[(iv)] The probability premium $\pi(x,\epsilon,u)$ is decreasing in $x$
         \item[(v)] For any $F(z)$, if $\int u(x_2+z)dF(z) \geq u(x_2)$ and $x_2 < x_1$, then $\int u(x_1+z)dF(z) \geq u(x_1)$
     \end{itemize}
@@ -299,7 +299,7 @@ From prop. 6.C.3, we know the underlying wealth level has significant effects on
     \end{align*}
 \end{definition}
 
-Note the requirement of \textit{non-increasing relative risk aversion} is stronger than that of decreasing absolute risk aversion we studied preveiously. This is because $r_R(x,u) = x r_A(x,u)$. A risk averse agent with non-increasing relative risk aversion exhibits decreasing absolute risk aversion, but the converse is not true. The following proposition mimics prop. 6.C.3.
+Note that the requirement of \textit{non-increasing relative risk aversion} is stronger than that of decreasing absolute risk aversion we studied previously. This is because $r_R(x,u) = x r_A(x,u)$. A risk-averse agent with non-increasing relative risk aversion exhibits decreasing absolute risk aversion, but the converse is not true. The following proposition parallels prop. 6.C.3.
 
 \begin{proposition}{6.C.4}
     The following conditions on $u(\cdot)$ are equivalent:
@@ -334,14 +334,14 @@ Note the requirement of \textit{non-increasing relative risk aversion} is strong
 
 \subsection*{6.D Comparison of payoff distributions in terms of return and risk}
 
-In previous section, we discuss on how to compare utility functions. While in this section, we would like to compare payoff distributions. Specifically, we would like to contruct formal ways to do such a comparison w.r.t. our two major concerns: return and the dipersion of return. For the following specifications, we restrict ourselves to distributions $F(\cdot)$ s.t. $F(0) = 0$ and $F(x) = 1$ for some $x$.\\
+In the previous section, we discussed how to compare utility functions. In this section, we compare payoff distributions. Specifically, we construct formal ways to do such a comparison with respect to our two major concerns: return and the dispersion of return. For the following specifications, we restrict ourselves to distributions $F(\cdot)$ such that $F(0) = 0$ and $F(x) = 1$ for some $x$.\\
 
 To see whether the distribution $F(\cdot)$ yields unambiguously higher returns than $G(\cdot)$, we may check two things:
 \begin{itemize}
-    \item[(i)] Whether every EU-maximizer who values more than less prefers $F(\cdot)$ to $G(\cdot)$
+    \item[(i)] Whether every EU-maximizer who prefers more to less prefers $F(\cdot)$ to $G(\cdot)$
     \item[(ii)] For every amount of money $x$, the probability of receiving at least $x$ is higher under $F(\cdot)$ than under $G(\cdot)$
 \end{itemize}
-Hopefully, it turns out that these two lead to the same concept of the \textit{first-order stochastic dominance}. (They are indeed equivalent!)
+Hopefully, it turns out that these two lead to the same concept of \textit{first-order stochastic dominance}. (They are indeed equivalent!)
 
 \subsubsection*{First-order stochastic dominance}
 
@@ -428,11 +428,11 @@ Consider a compound lottery that yields $x$ according to the distribution $F(\cd
     (\textit{Mean-preserving spreads}) Let $G(\cdot)$ denote the reduced lottery resulting from the process we described above. If a distribution can be obtained from lottery $F(\cdot)$ in such a process for some distribution $H_x(\cdot)$ (e.g. $G(\cdot)$), then we say it is a \textit{mean-preserving spread} of $F(\cdot)$.
 \end{definition}
 
-To associate the mean-preserving spread with def. 6.D.1, we need to check two things: 
+To associate the mean-preserving spread with def. 6.D.2, we need to check two things: 
 
 \begin{itemize}
     \item[(i)] $F(\cdot)$ and $G(\cdot)$ share the same mean
-    \item[(ii)] For any non-decreasing concave function $u: \mathbb{R} \rightarrow \mathbb{R}$, the inequality in def. 6.D.1 holds.
+    \item[(ii)] For any non-decreasing concave function $u: \mathbb{R} \rightarrow \mathbb{R}$, the inequality in def. 6.D.2 holds.
 \end{itemize}
 
 \begin{pf}
@@ -445,8 +445,8 @@ To associate the mean-preserving spread with def. 6.D.1, we need to check two th
 
     (ii): Fix a concave function $u: \mathbb{R} \rightarrow \mathbb{R}$,
     \begin{align*}
-        \int u(x) dG(x) &= \int \left(\int u(x+z) dG_x(z) \right) dF(x) \\
-        &\leq \int u\left( \int (x+z) dG_x(z) \right) dF(x) = \int u(x) dF(x)
+        \int u(x) dG(x) &= \int \left(\int u(x+z) dH_x(z) \right) dF(x) \\
+        &\leq \int u\left( \int (x+z) dH_x(z) \right) dF(x) = \int u(x) dF(x)
     \end{align*}
     \hfill $\square$
 \end{pf}
@@ -454,7 +454,7 @@ To associate the mean-preserving spread with def. 6.D.1, we need to check two th
 After checking the conditions, we know that def 6.D.1* implies that $F(\cdot)$ second-order stochastically dominates $G(\cdot)$. In later proposition, we will show that the two concepts are essentially equivalent.
 
 \begin{definition}{6.D.1**}
-    (\textit{Elementary increase in risk}) $G(\cdot)$ forms an \textit{elementary increase in risk} from $F(\cdot)$ if $G(\cdot)$ is generated from $F(\cdot)$ by transfering the mass $F(\cdot)$ assigns to $[x',x'']$ to the endpoint $x'$ and $x''$ s.t. the mean preserves.
+    (\textit{Elementary increase in risk}) $G(\cdot)$ forms an \textit{elementary increase in risk} from $F(\cdot)$ if $G(\cdot)$ is generated from $F(\cdot)$ by transferring the mass $F(\cdot)$ assigns to $[x',x'']$ to the endpoints $x'$ and $x''$ such that the mean is preserved.
 \end{definition}
 
 
@@ -476,7 +476,7 @@ After checking the conditions, we know that def 6.D.1* implies that $F(\cdot)$ s
 
 In previous sections, we implicitly characterize the preference of decision makers in a way that the underlying state that leads to the monetary payoff is irrelevant to the eventual payoff. However, there are plenty of cases where people care about the resulting cause that leads to the payoff. For example, one must be injured or sick to receive the insurance payment.\\ 
 
-For later discussion, we refer to the underlying causes as \textit{states} or \textit{states of nature} and denote the finite set of states by $S = \{1, ..., S \}$. For each state $s \in S$, we assume there is a well-defined, objective probability $\pi_s > 0$ assigned and denote the payoff by $x_s \geq 0$. Formally, the uncertain alternative with monetary payoff can be described with a random variable $g: S \rightarrow \mathbb{R}_+$ so that every $g$ can be associated with a distribution function $F(\cdot)$ with $F(x) = \sum_{\{s: g(s) \leq x\}} \pi_s$ for all $x$.
+For later discussion, we refer to the underlying causes as \textit{states} or \textit{states of nature} and denote the finite set of states by $S = \{1, \dots, S\}$. For each state $s \in S$, we assume there is a well-defined, objective probability $\pi_s > 0$ assigned and denote the payoff by $x_s \geq 0$. Formally, the uncertain alternative with monetary payoff can be described with a random variable $g: S \rightarrow \mathbb{R}_+$ so that every $g$ can be associated with a distribution function $F(\cdot)$ with $F(x) = \sum_{\{s: g(s) \leq x\}} \pi_s$ for all $x$.
 
 \subsubsection*{State-dependent preferences and the extended EU theory}
 
@@ -499,13 +499,13 @@ Under this definition, we allow individuals to have different utility functions 
 \includegraphics[width=0.5\textwidth]{figs/fig.6.e.1.png}
 \end{figure}
 
-The figure above illustrates a major difference between the state-dependent and the \textit{state-uniform} utilities. We call the set of random varaibles that pay the same amount at every state the \textit{money certainty line}. In a two-state case as the figure shows, the MRS of a state-dependent utlity around the money certainty line is $\frac{\pi_1 u'_1(\bar{x})}{\pi_2 u'_2(\bar{x})}$, which reflects the probability of the occurence of the state and the nature of state dependence. While that of a state-uniform utility is only $\frac{\pi_1}{\pi_2}$. (the rest contents are skipped...)
+The figure above illustrates a major difference between state-dependent and \textit{state-uniform} utilities. We call the set of random variables that pay the same amount in every state the \textit{money certainty line}. In a two-state case, as the figure shows, the MRS of a state-dependent utility around the money certainty line is $\frac{\pi_1 u'_1(\bar{x})}{\pi_2 u'_2(\bar{x})}$, which reflects the probability of the occurrence of the state and the nature of state dependence. By contrast, that of a state-uniform utility is only $\frac{\pi_1}{\pi_2}$. (The remaining contents are skipped.)
 
 \subsection*{6.F Subjective probability theory (Optional)}
 
-In many real world cases, the state of the world is not associated with a recognizable, objective probability but rather often is linked to subjective estimates. The \textit{subjective probability theory}, however, states that there are still restrictions imposed on preferences such that decision makers behave \textit{as if} utilities are assigned to outcomes, probabilities are attached to states of nature, and the decisions are made by taking expected utilities.\\
+In many real-world cases, the state of the world is not associated with a recognizable, objective probability but rather is often linked to subjective estimates. The \textit{subjective probability theory}, however, states that there are still restrictions imposed on preferences such that decision makers behave \textit{as if} utilities are assigned to outcomes, probabilities are attached to states of nature, and the decisions are made by taking expected utilities.\\
 
-Following the notations in 6.E, the set of states is denoted by $S=\{1, ...,S \}$ while the probabilities are not given.
+Following the notation in 6.E, the set of states is denoted by $S = \{1, \dots, S\}$, while the probabilities are not given.
 
 \newpage
 
@@ -519,7 +519,7 @@ In this chapter, we will focus on the partial equilibrium analysis and the welfa
 
 \subsection*{10.B Pareto optimality and Competitive equilibria}
 
-\begin{notebox}{Notations}
+\begin{notebox}{Notation}
     \begin{itemize}
         \item $\omega_l \geq 0:$ endowment of the good indexed by $l = 1,..., L$
         \item $x_i = (x_{1i}, ..., x_{Li}) \in \mathbb{R}^L$: consumption bundle of consumer $i$, $i = 1,..., I$
@@ -543,18 +543,18 @@ In this chapter, we will focus on the partial equilibrium analysis and the welfa
     (\textit{Pareto efficiency}) A feasible allocation $(x_1, ..., x_I, y_1, ..., y_J)$ is \textit{Pareto optimal} (or \textit{Pareto efficient}) if there is no other feasible allocation $(x'_1, ..., x'_I, y'_1, ..., y'_J)$ s.t. $u_i(x'_i) \geq u_i(x_i)$ for all $i$ and $u_i(x'_i) > u_i(x_i)$ for some $i$.
 \end{definition}
 
-Following the concept of Pareto efficiency, we define the \textit{utility possibility set} as $U = \{(u_1, ..., u_I) \in \mathbb{R}^I$: there exists a feasible allocation $(x_1, ..., x_I, y_1, ..., y_J)$ s.t. $u_i \leq u_i(x_i)$ for all $i \}$
+Following the concept of Pareto efficiency, we define the \textit{utility possibility set} as $U = \{(u_1, ..., u_I) \in \mathbb{R}^I: \text{there exists a feasible allocation } (x_1, ..., x_I, y_1, ..., y_J) \text{ such that } u_i \leq u_i(x_i) \text{ for all } i\}$.
 
 \subsubsection*{Competitive equilibria}
 
-In this chapter, we are concerned with the analysis of \textit{competitive market economies}. In such an economy, society's initial endowments and technological possibilities (i.e. firms) are owned by consumers. We denote the share of firm $j$ owned by consumer $i$ by $\theta_{ij}$, so that he/she can claim a fraction of $\theta_{ij}$ of firm $j$'s profits. ALso in a competitive economy, a market exists for each goods, and all consumers and producers are price takers.\\
+In this chapter, we are concerned with the analysis of \textit{competitive market economies}. In such an economy, society's initial endowments and technological possibilities (i.e., firms) are owned by consumers. We denote the share of firm $j$ owned by consumer $i$ by $\theta_{ij}$, so that the consumer can claim a fraction $\theta_{ij}$ of firm $j$'s profits. Also, in a competitive economy, a market exists for each good, and all consumers and producers are price takers.\\
 
-\noindent \textbf{Remark:} Recall that in textbooks, we usually argue that the reason why an equilibrium must involve no excess demand or supply is because, for example, some consumers may be better off to offer a higher price to receive as much goods as desired. In such a justification, we actually made use of the fact that consumers and producers are not simply take the price as given, which may seem to lead to a contradiction.\\
+\noindent \textbf{Remark:} Recall that in textbooks, we usually argue that the reason why an equilibrium must involve no excess demand or supply is that, for example, some consumers may be better off offering a higher price to receive as many goods as desired. In such a justification, we actually make use of the fact that consumers and producers do not simply take the price as given, which may seem to lead to a contradiction.\\
 
-We have to recognize here that consumers and producers both always have the ability to change their offered price. Meanwhile, the price-taking assumption is actually refer to the case that there is \textit{no incentive} for them to alter the price, if taken as given, eqaute the supply and demand. As long as consumers and producers are able to make their desired offer, at the price that equates supply and demand, consumers will not wish to raise the price and producers will not wish to lower it. This answer the "contradiction" we ran in to at the first glance.
+We have to recognize here that consumers and producers always have the ability to change their offered price. Meanwhile, the price-taking assumption actually refers to the case that there is \textit{no incentive} for them to alter the price: if the (taken-as-given) price equates supply and demand. As long as consumers and producers can make their desired offers at a price that equates supply and demand, consumers will not wish to raise the price and producers will not wish to lower it. This answers the "contradiction" we ran into at first glance.
 
 \begin{definition}{10.B.3}
-    (\textit{Competitive equilibrium}) The allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $p^* \in \mathbb{R}^L$ consititute a \textit{competitive equilibrium} (or \textit{Walrasian equilibrium}) if the following conditions are satisfied:
+    (\textit{Competitive equilibrium}) The allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $p^* \in \mathbb{R}^L$ constitute a \textit{competitive equilibrium} (or \textit{Walrasian equilibrium}) if the following conditions are satisfied:
     \begin{itemize}
         \item[(i)] \textit{Profit maximization}: For each firm $j$, $y^*_j$ solves
         \begin{align*}
@@ -575,9 +575,9 @@ We have to recognize here that consumers and producers both always have the abil
     Show that if allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $p^* \gg 0$ form a competitive equilibrium, then allocation $(x^*_1, ..., x^*_I, y^*_1, ..., y^*_J)$ and price vector $\alpha p^*$ also form a competitive equilibrium for any scalar $\alpha > 0$.
 \end{exercise}
 \begin{pf}
-    \textbf{Proof:} As $y^*_1, ..., y^*_J$ solves the profit maximization problem given $p^*$, they solve the profit maximization problem under $\alpha p^*$. Plugging this result to conumsers' budget constraints, the utility maximization problem becomes:
+    \textbf{Proof:} As $y^*_1, ..., y^*_J$ solve the profit maximization problem given $p^*$, they also solve the profit maximization problem under $\alpha p^*$. Plugging this result into consumers' budget constraints, the utility maximization problem becomes:
     \begin{align*}
-        \max_{x_i \in X_i} u_i(x_i)\ s.t.\ \alpha p^* \cdot x_i \leq \alpha p^* \omega_i + \sum_{j=1}^{J} \theta_{ij} (\alpha p^* \cdot y^*_j)
+        \max_{x_i \in X_i} u_i(x_i)\ s.t.\ \alpha p^* \cdot x_i \leq \alpha p^* \cdot \omega_i + \sum_{j=1}^{J} \theta_{ij} (\alpha p^* \cdot y^*_j)
     \end{align*}
     Since $\alpha > 0$, the utility maximization problem is identical to the original one. Thus, the same $x_1,..., x_I$ solve the utility maximization problem under $\alpha p^*$.\\
 
@@ -598,17 +598,17 @@ We have to recognize here that consumers and producers both always have the abil
     \begin{align*}
         \sum_{l \neq k} p_l \left(\sum_{i=1}^{I} x_{li} - \omega_l - \sum_{j=1}^{J} y_{lj} \right) = - p_k \left(\sum_{i=1}^{I} x_{ki} - \omega_k - \sum_{j=1}^{J} y_{kj} \right)
     \end{align*}
-    By clearing markets of goods $l \neq k$, the left hand side eqauls to zero and so does the right hand side ($p_k > 0$). Thus, the market clearing condition holds for the market of good $k$. 
+    By clearing markets of goods $l \neq k$, the left hand side equals zero and so does the right hand side ($p_k > 0$). Thus, the market clearing condition holds for the market of good $k$. 
 
     \hfill $\square$ 
 \end{pf}
 
 \subsection*{10.C Partial equilibrium competitive analysis}
 
-Marshallian partial equilibrium analysis envisions the market for one good that consititutes a small fraction of the whole economy. The small size of the market implies two things:
+Marshallian partial equilibrium analysis envisions the market for one good that constitutes a small fraction of the whole economy. The small size of the market implies two things:
 \begin{itemize}
-    \item When the expenditure on the good is a small portion of a consumer's total expenditure, only a small fraction of any additional dollar of wealth will be spent on it. That is, we expect the wealth effect to be small.
-    \item The small size of the market of interest leads the price of other goods to be approximately unaffected by changes in this market. Therefore, we are jsutified in treating the expenditure on the other goods as a single composite commodity, called the \textit{numeraire}.
+    \item When expenditure on the good is a small portion of a consumer's total expenditure, only a small fraction of any additional dollar of wealth will be spent on it. That is, we expect the wealth effect to be small.
+    \item The small size of the market of interest implies that the prices of other goods are approximately unaffected by changes in this market. Therefore, we are justified in treating expenditure on the other goods as a single composite commodity, called the \textit{numeraire}.
 \end{itemize}
 
 With the two implications, we proceed to study a simple two-good quasilinear model, where there are two goods: $l$ and the numeraire. We denote consumer $i$'s consumption of good $l$ and the numeraire as $x_i$ and $m_i$, respectively. For each consumer $i$, he/she has a quasilinear utility function as below\footnote{For convenience, we assume the consumption set is $\mathbb{R} \times \mathbb{R}_+$ (i.e. the consumption of numeraire can be negative.) Additionally, we assume that $\phi_i(\cdot)$ is bounded above and twice differentiable, with $\phi'_i(x_i) > 0$ and $\phi''_i(x_i) < 0$ for all $x_i \geq 0$. We normalize $\phi_i(0) = 0$.}:
@@ -623,14 +623,14 @@ In the later discussion, we normalize the price of the numeraire to be 1 and den
 
 For simplicity, we assume that there is no initial endowment of good $l$ so that all consumption of $l$ must be produced by the firms. We denote $i$'s initial endowment of $m$ by $\omega_{mi} > 0$ and let $\omega_m = \sum_i \omega_{mi}$.\\
 
-Applying def. 10.B.3 and lemma 10.B.1, we conclude that the the allocation $(x^*_1,...x^*_I, q^*_1,q^*_J)$ and price $p^*$ constitute a competitive equilibrium if and only if 
+Applying def. 10.B.3 and lemma 10.B.1, we conclude that the allocation $(x^*_1,\dots,x^*_I, q^*_1,\dots,q^*_J)$ and price $p^*$ constitute a competitive equilibrium if and only if 
 \begin{align*}
     p^* \leq c'_j(q^*_j),\ &\text{with equality if}\ q^*_j > 0 \quad \forall\ j\\
-    \phi'(x^*_i) \leq p^*,\ &\text{with equality if}\ x^*_ji > 0 \quad \forall\ i\\
-    &\sum_{i=1}^{I} x^*_i = \sum_{j=1}^{J}q^*_j
+    \phi'(x^*_i) \leq p^*,\ &\text{with equality if}\ x^*_i > 0 \quad \forall\ i\\
+    &\sum_{i=1}^{I} x^*_i = \sum_{j=1}^{J} q^*_j
 \end{align*}
 
-The three neccesary and sufficient conditions imply that the equilibrium allocation and price are independent of the distribution of endowments and the ownership shares. (This is the result of the quasi-linear preference!) In fact, the quasi-linear assumption gives rise to an unlimited unit-for-unit transfer of utility across all consumers throught transfers of the numeraire.
+The three necessary and sufficient conditions imply that the equilibrium allocation and price are independent of the distribution of endowments and the ownership shares. (This is a consequence of quasi-linear preferences.) In fact, the quasi-linear assumption gives rise to an unlimited unit-for-unit transfer of utility across all consumers through transfers of the numeraire.
 
 \subsubsection*{Comparative statics}
 
@@ -641,25 +641,25 @@ Following the quasi-linear property, we know that the set of utilities that can 
     \{(u_1,...u_I): \sum_{i=1}^{I}u_i \leq \sum_{i=1}^{I}\phi_i(\bar{x}_i) + \omega_m - \sum_{j=1}^{J}c_j(\bar{q}_j) \}
 \end{align*}
 
-We may obtain the \textit{the optimal consumption and production levels for good $l$} by solving 
+We may obtain \textit{the optimal consumption and production levels for good $l$} by solving 
 \begin{align*}
-    \max_{(x_1,...,x_I), (y_1,...y_J)\geq 0}\ &\sum_{i=1}^{I} \phi_i(x_i) - \sum_{j=1}^{J} c_j(q_j) + \omega_m\\
-    &\text{s.t.}\ \sum_{i=1}^{I} x_i - \sum_{j=1}^{J} = 0
+    \max_{(x_1,...,x_I), (q_1,...,q_J)\geq 0}\ &\sum_{i=1}^{I} \phi_i(x_i) - \sum_{j=1}^{J} c_j(q_j) + \omega_m\\
+    &\text{s.t.}\ \sum_{i=1}^{I} x_i - \sum_{j=1}^{J} q_j = 0
 \end{align*}
 
-Applying the Lagrange (the multiplier is denoted by $\mu$), we find the following conditions:
+Applying the Lagrangian method (with multiplier $\mu$), we obtain the following conditions:
 \begin{align*}
     \mu \leq c'_j(q^*_j),\ &\text{with equality if}\ q^*_j > 0 \quad \forall\ j\\
-    \phi'(x^*_i) \leq \mu,\ &\text{with equality if}\ x^*_ji > 0 \quad \forall\ i\\
-    &\sum_{i=1}^{I} x^*_i = \sum_{j=1}^{J}q^*_j,
+    \phi'(x^*_i) \leq \mu,\ &\text{with equality if}\ x^*_i > 0 \quad \forall\ i\\
+    &\sum_{i=1}^{I} x^*_i = \sum_{j=1}^{J} q^*_j,
 \end{align*}
-which is exactly def 10.B.3 with $p^*$ replaced by the Lagrange multiplier $\mu$\footnote{This implies that the competitive price is exactly the shadow price on the resource constraint.}. And this leads to \textit{the first fundamental theorem of welfare economics}.
+which is exactly def 10.B.3 with $p^*$ replaced by the Lagrange multiplier $\mu$\footnote{This implies that the competitive price is exactly the shadow price on the resource constraint.}. This leads to \textit{the first fundamental theorem of welfare economics}.
 
 \begin{proposition}{10.D.1}
     (\textit{The first fundamental theorem of welfare economics}) If the price $p^*$ and the allocation $(x^*_1,...x^*_I,q^*_1,...,q^*_J)$ constitute a competitive equilibrium, then the allocation is Pareto optimal.
 \end{proposition}
 
-We can also develop a converse of the first fundamental theorem of welfare economics, called \textit{the second fundamental theorem of welfare economics}. Note that the equilibrium price, consumption and production levels are unaffected by changes in consumers' wealth level. Hence, a transfer of one unit of the numeraire from $i$ to $i'$ causes their consumption of the numeraire by exactly the same amount of transfer and no other change. Hence, by properly transfering the endownment of the numeraire, we may attain any utility vector in the boundary of the utility possibility set.
+We can also develop a converse of the first fundamental theorem of welfare economics, called \textit{the second fundamental theorem of welfare economics}. Note that the equilibrium price, consumption, and production levels are unaffected by changes in consumers' wealth levels. Hence, a transfer of one unit of the numeraire from $i$ to $i'$ changes their consumption of the numeraire by exactly the same amount and causes no other change. Hence, by properly transferring the endowment of the numeraire, we may attain any utility vector on the boundary of the utility possibility set.
 
 \begin{proposition}{10.D.2}
     (\textit{The second fundamental theorem of welfare economics}) For any Pareto optimal levels of utility $(u^*_1,...,u^*_I)$, there are transfers of the numeraire $(T_1,...,T_I)$ satisfying $\sum_{i=1}^{I}T_i = 0$, s.t. a competitive equilibrium reached from the endowment $(\omega_{m1}+T_1,..., \omega_{mI}+T_I)$ yields precisely the utility levels $(u^*_1,...,u^*_I)$.
@@ -673,14 +673,14 @@ We can also develop a converse of the first fundamental theorem of welfare econo
 
 \subsection*{16.B The basic model and definitions}
 
-As in chapter 10, in this chapter, we consider an economy with $I$ consumers, $J$ firms, and $L$ commodities. With our usual notations, such an economy can be charaterized by: 
+As in Chapter 10, in this chapter, we consider an economy with $I$ consumers, $J$ firms, and $L$ commodities. With our usual notations, such an economy can be characterized by: 
 \begin{align*}
     (\{(X_i, \succcurlyeq_i)_{i=1}^I\}, \{Y_j\}_{j=1}^J, \bar{\omega}),
 \end{align*}
 where $X_i, Y_j, \bar{\omega} \in \mathbb{R}^L$ and $\succcurlyeq_i$ is a rational preference relation on $X_i$.
 
 \begin{notebox}{Recall Ch15}
-    In chapter 15, we are introduced to the useful tool of \textit{edgeworth box} in a \textit{pure exchange economy} (i.e. there is no production involved). Here we quickly review some definitions.\\
+    In Chapter 15, we are introduced to the useful tool of the \textit{Edgeworth box} in a \textit{pure exchange economy} (i.e., there is no production involved). Here we quickly review some definitions.\\
     
     Note that in general equilibrium context, the wealth level of a consumer is not exogenously given but rather determined by the prices and his/her initial endowment. Hence, given the endowment $\omega_i$, consumer $i$'s \textit{budget set} is a function of prices:
     \begin{align*}
@@ -716,7 +716,7 @@ We denote the set of feasible allocations by $A$.
 
 \subsubsection*{Private ownership economy}
 
-In an private ownership economy, all goods are traded in the market with publicly known prices that consumers and firms take as unaffected by their own actions. Each consumer also has a claim $\theta_i$ of the firms' profits. Hence, we characterize such an economy by:
+In a private ownership economy, all goods are traded in the market with publicly known prices that consumers and firms take as unaffected by their own actions. Each consumer also has claims to firms' profits. Hence, we characterize such an economy by:
 \begin{align*}
     (\{(X_i, \succcurlyeq_i)\}, \{Y_j\}, \{(\omega_i, \theta_{i1}, ... \theta_{iJ}) \})
 \end{align*}
@@ -730,7 +730,7 @@ In an private ownership economy, all goods are traded in the market with publicl
         \end{align*}
         \item[(ii)] For every consumer $i$, $x^*_i$ is maximal for $\succcurlyeq_i$ in the budget set
         \begin{align*}
-            \{x_i \in X_i: p \cdot x_i \leq p \cdot \omega_i + \sum_j \theta_{ij}p \cdot y^*_i \}
+            \{x_i \in X_i: p^* \cdot x_i \leq p^* \cdot \omega_i + \sum_j \theta_{ij} \, p^* \cdot y^*_j \}
         \end{align*}
         \item[(iii)] Market clearing: $\sum_i x^*_i = \bar{\omega} + \sum_j y^*_j$
     \end{itemize}
@@ -743,7 +743,7 @@ In an private ownership economy, all goods are traded in the market with publicl
     \begin{itemize}
         \item[(i)] For every firm $j$, $y^*_j$ maximizes profits in $Y_j$. That is,
         \begin{align*}
-            p^* \cdot y_j \leq p^* \cdot y^*_j\ \text{for all}\ y_j \in Y_j
+            p \cdot y_j \leq p \cdot y^*_j\ \text{for all}\ y_j \in Y_j
         \end{align*}
         \item[(ii)] For every consumer $i$, $x^*_i$ is maximal for $\succcurlyeq_i$ in the budget set
         \begin{align*}
@@ -763,7 +763,7 @@ In an private ownership economy, all goods are traded in the market with publicl
 \end{definition}
 
 \begin{exercise}{16.C.1}
-    Show that if a consumption set $X_i \subseteq \mathbb{R^L}$ is non-empty, closed, and bounded, and the preference relation $\succcurlyeq_i$ on $X_i$ is continuous, then $\succcurlyeq_i$ can not be locally nonsatiated.
+    Show that if a consumption set $X_i \subseteq \mathbb{R}^L$ is non-empty, closed, and bounded, and the preference relation $\succcurlyeq_i$ on $X_i$ is continuous, then $\succcurlyeq_i$ cannot be locally nonsatiated.
 \end{exercise}
 \begin{pf}
     \textbf{Proof}: Since $X_i \subseteq \mathbb{R}^L$ is non-empty, closed, and bounded, it is compact.\\
@@ -837,7 +837,7 @@ Chapter 15 illustrates many examples of failure of the fundamental theorems of w
     \begin{itemize}
         \item[(i)] For every firm $j$, $y^*_j$ maximizes profits in $Y_j$. That is,
         \begin{align*}
-            p^* \cdot y_j \leq p^* \cdot y^*_j\ \text{for all}\ y_j \in Y_j
+            p \cdot y_j \leq p \cdot y^*_j\ \text{for all}\ y_j \in Y_j
         \end{align*}
         \item[(ii)] For every consumer $i$, if $x_i \succ_i x^*_i$ then $p \cdot x_i \geq w_i$
         \item[(iii)] Market clearing: $\sum_i x^*_i = \bar{\omega} + \sum_j y^*_j$  
@@ -868,10 +868,10 @@ Before introducing the statement of the second fundamental theorem of welfare ec
     \hfill $\square$
 \end{pf}
 
-The following is the genralized version of the separating hyperplane theorem.
+The following is the generalized version of the separating hyperplane theorem.
 
 \begin{theorem}{}
-    (\textit{Separating hyperplane theorem}) Consider two non-empty disjoint convex subsets $A,B$ of $\mathbb{R}^N$. Then there exists a non-zero vector $v$ and a real number $c$ s.t.
+    (\textit{Separating hyperplane theorem}) Consider two non-empty disjoint convex subsets $A,B$ of $\mathbb{R}^N$. Then there exists a non-zero vector $v$ and a real number $c$ such that
     \begin{align*}
         x \cdot v \geq c\ \text{and}\ y \cdot v \leq c\ \text{for all}\ x \in A, y \in B
     \end{align*}
@@ -930,7 +930,7 @@ The following is the genralized version of the separating hyperplane theorem.
     \begin{pf}
         \textit{Proof}: By step 5, we have $p \cdot (\sum_i x^*_i) \geq r$.\\
         
-        On the other hand, note $\sum_i x^*_i = \sum_j y^*_j + \bar{\omega} \in Y + \{\bar{\omega}\}$. So we have by step 4 that $\sum_i x^*_i \leq r$.
+        On the other hand, note $\sum_i x^*_i = \sum_j y^*_j + \bar{\omega} \in Y + \{\bar{\omega}\}$. So we have by step 4 that $p \cdot (\sum_i x^*_i) \leq r$.
 
         \hfill $\square$
     \end{pf}
@@ -956,7 +956,7 @@ The following is the genralized version of the separating hyperplane theorem.
 
         \hfill $\square$
     \end{pf}
-    Step 9: Thhe wealth levels $w_i = p \cdot x^*_i$ for all $i$ support $(x^*,y^*,p)$ as a price quasi-equilibrium with transfers.
+    Step 9: The wealth levels $w_i = p \cdot x^*_i$ for all $i$ support $(x^*,y^*,p)$ as a price quasi-equilibrium with transfers.
     \begin{pf}
         \textit{Proof}: We are left to check that condition (iii) holds. And this follows from the feasibility of the Pareto optimal allocation $(x^*, y^*)$.
 
@@ -1057,7 +1057,7 @@ Also, we define the \textit{Pareto frontier} by
     \hfill $\square$
 \end{pf}
 
-\noindent \textbf{Remark}: Prop.16.E.2 shows that for ecnomies with convex utility possibility sets, every linear social welfaer optimum with weights $\lambda \gg 0$ is Pareto optimal, and every Pareto optimal allocation can be supported as a social welfare optimum with some $\lambda \geq 0$.
+\noindent \textbf{Remark}: Prop.16.E.2 shows that for economies with convex utility possibility sets, every linear social welfare optimum with weights $\lambda \gg 0$ is Pareto optimal, and every Pareto optimal allocation can be supported as a social welfare optimum with some $\lambda \geq 0$.
 
 
 \newpage
@@ -1065,7 +1065,48 @@ Also, we define the \textit{Pareto frontier} by
 \section*{Ch19: General equilibrium under uncertainty}
 \hfill
 
-\subsection*{A market economy with contingent commodities: description}
+\subsection*{19.B A market economy with contingent commodities: description}
+
+In this chapter, we study economies where technologies, endowments, and preferences are uncertain. In particular, they are assumed to depend on the state of the world. We also assume that the set of states of the world, $S$, is given and finite.
+
+\begin{definition}{19.B.1}
+    (\textit{(State-)contingent commodity}) For every physical commodity $l = 1,...,L$ and state $s = 1, ..., S$, a unit of (state-)contingent commodity $ls$ is a title to receive a unit of the physical good $l$ \textit{if and only if} $s$ occurs. Accordingly, a \textit{(state-)contingent commodity vector} is specified by 
+    \begin{align*}
+        x = (x_{11}, \dots, x_{L1}, \dots, x_{1S}, \dots, x_{LS}) \in \mathbb{R}^{LS}
+    \end{align*}
+    and is an entitlement to receive the commodity vector $(x_{1s},...,x_{Ls})$ if $s$ occurs.
+\end{definition}
+
+\subsection*{19.C Arrow-Debreu equilibrium}
+
+Following def.19.B.1, we describe the economy under uncertainty by means of a set of states of the world $S$, a consumption set $X_i \subseteq \mathbb{R}^{LS}$, an endowment vector $\omega_i \in \mathbb{R}^{LS}$, and a preference relation $\succcurlyeq_i$ on $X_i$ for all consumers $i$, together with a production set $Y_j \subseteq \mathbb{R}^{LS}$ and profit shares $(\theta_{j1}, ..., \theta_{jI})$ for every firm $j$.\\
+
+In the economy we study, what is purchased (or sold) for the contingent commodity $ls$ is a commitment to receive (or deliver) amounts of the good $l$ if $s$ occurs. Hence, we introduce a new equilibrium concept:
+
+\begin{definition}{19.C.1}
+    (\textit{Arrow-Debreu equilibrium}) An allocation
+    \begin{align*}
+        (x^*_1,...,x^*_I,y^*_1,...,y^*_J) \in X_1 \times ... \times X_I \times Y_1 \times Y_J \subseteq \mathbb{R}^{LS(I+J)}
+    \end{align*}
+    and a system of prices for the contingent commodities $p = (p_{11},...,p_{LS}) \in \mathbb{R}^{LS}$ form an \textit{Arrow-Debreu equilibrium} if 
+\end{definition}
+\begin{notebox}{}
+    \begin{itemize}
+        \item[(i)] For every $j$, $y^*_j$ satisfies $p \cdot y^*_j \geq p \cdot y_j$ for all $y_j \in Y_j$
+        \item[(ii)] For every $i$, $x^*_i$ is maximal for $\succcurlyeq_i$ in the budget set
+        \begin{align*}
+            \{x_i \in X_i: p \cdot x_i \leq p \cdot \omega_i + \sum_{j} \theta_{ij} p \cdot y^*_j \}
+        \end{align*}
+        \item[(iii)] $\sum_i x^*_i = \sum_j y^*_j + \sum_i \omega_i$
+    \end{itemize}
+\end{notebox}
+
+
+
+
+
+
+
 
 
 
